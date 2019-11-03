@@ -257,5 +257,20 @@ create table procedure_charting(
 
 
 --vats, de que ordem de grandeza?
-insert into employee values('25%', 'Jane Sweettooth', '30/September/78', '')
-insert into employee values('15%', 'André Martins', '7/June/78', '')
+insert into employee values('25', 'Jane Sweettooth', '30/September/78', 'Castanheiras Street', 'Lisboa','1100-300' '1234', 1000)--doutor
+insert into employee values('15', 'André Martins', '7/June/78', 'Técnico Avenue', 'Lisboa', '1110-450', '5323', 2000)--doutor
+insert into employee values('10', 'Jorge Goodenough', '12/May/38', 'Cinzeiro Street', 'Lisboa','1100-320' '4321', 1000)--doutor
+insert into employee values('11', 'Deolinda de Vila Mar', '6/September/67', 'Grande Campo Street', 'Lisboa','1100-270' '6979', 1000)--doutor
+insert into employee values('12', 'Hermelinda Boavida', '17/December/45', 'Cinco Batalhas Street', 'Lisboa', '1110-150', '5901', 2000)--enferm
+insert into employee values('13', 'Zacarias Fernandes', '3/February/50', 'Janelas Street', 'Lisboa', '1110-260', '6501', 2000)--enferm
+insert into employee values('14', 'Joaquim Ahmad', '14/March/65', 'Linhas de ferro Street', 'Lisboa','1100-100' '0912', 1000)--recep
+insert into employee values('16', 'Maria Peixeira', '2/January/80', 'Rés-do-chão Street', 'Lisboa', '1200-230', '6832', 2000)--recep
+
+insert into phone_number_employee('25', '1234')
+insert into phone_number_employee('15', '5678')
+insert into phone_number_employee('10', '9102')
+insert into phone_number_employee('11', '3456')
+insert into phone_number_employee('12', '7890')
+insert into phone_number_employee('13', '0123')
+insert into phone_number_employee('14', '4567')
+insert into phone_number_employee('16', '8901')
