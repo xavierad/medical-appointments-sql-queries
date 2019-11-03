@@ -23,7 +23,7 @@ drop table if exists teeth;
 drop table if exists procedure_charting;
 
 create table employee(
-  VAT varchar(255) --inteiro ou varchar?
+  VAT varchar(255), --inteiro ou varchar?
   name varchar(255),
   birth_date varchar(255),--talvez char ou varchar? DEFINIR
   street varchar(255),--há algum problema em pôr em todos 255?
@@ -41,7 +41,7 @@ create table phone_number_employee(
   VAT varchar(255), --inteiro, certo?
   phone integer, --ou varchar?
   primary key(VAT, phone),
-  foreign key(VAT, phone_number_employee)
+  foreign key(VAT)
     references employee
 );
 
@@ -87,8 +87,8 @@ create table client(
 
 create table phone_number_client(
   VAT varchar(255), --ineteiro, certo?
-  phone_number varchar(255)--?
-  primary key(VAT, phone_number_client),
+  phone varchar(255),--?
+  primary key(VAT, phone),
   foreign key(VAT)
     references client
 );
@@ -113,8 +113,8 @@ create table supervision_report(
   VAT varchar(255), --inteiro?
   date_timestamp varchar(255),--varchar? ver noutros para alterar
   description varchar(255),
-  evaluation integer
-  primary key(VAT, date_timestamp)
+  evaluation integer,
+  primary key(VAT, date_timestamp),
   foreign key(VAT)
     references trainee_doctor,
   check(evaluation between 1 and 5) --aqui pode-se, certo?
@@ -125,7 +125,7 @@ create table appointment(
   date_timestamp varchar(255),
   description varchar(255),
   VAT_client varchar(255),
-  primary key(VAT_doctor, date_timestamp)
+  primary key(VAT_doctor, date_timestamp),
   foreign key(VAT_doctor)
     references doctor,
   foreign key(VAT_client)
@@ -135,10 +135,10 @@ create table appointment(
 create table consultation(
   VAT_doctor varchar(255),
   date_timestamp varchar(255),
-  SOAP_S char(1),
-  SOAP_O char(1),
-  SOAP_A char(1),
-  SOAP_P char(1),
+  SOAP_S varchar(255),
+  SOAP_O varchar(255),
+  SOAP_A varchar(255),
+  SOAP_P varchar(255),
   primary key(VAT_doctor, date_timestamp)),
   foreign key(VAT_doctor, date_timestamp)
     references appointment
@@ -186,7 +186,7 @@ create table consultation_diagnostic(
 
 create table medication(
   name varchar(255),
-  lab varchar(255)
+  lab varchar(255),
   primary key(name, lab)
 );
 
@@ -197,7 +197,7 @@ create table prescription(
   date_timestamp varchar(255),
   ID varchar(255),
   dosage varchar(255), --como? como se fosse uma descrição
-  description varchar(255)
+  description varchar(255),
   primary key(name, lab, VAT_doctor, date_timestamp, ID),
   foreign key(VAT_doctor, date_timestamp, ID)
     references consultation_diagnostic,
