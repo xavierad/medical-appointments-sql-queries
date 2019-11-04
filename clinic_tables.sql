@@ -22,8 +22,8 @@ drop table if exists procedure_radiology;
 drop table if exists teeth;
 drop table if exists procedure_charting;
 
-create table employee(
-  VAT varchar(255), --inteiro ou varchar?
+create table employee
+ (VAT varchar(255), --inteiro ou varchar?
   name varchar(255),
   birth_date varchar(255),--talvez char ou varchar? DEFINIR
   street varchar(255),--há algum problema em pôr em todos 255?
@@ -33,46 +33,37 @@ create table employee(
   salary integer,
   primary key (VAT),
   check(salary > 0),
-  unique(IBAN)
-);
+  unique(IBAN));
 --falta: ICs, all employees are...
 
-create table phone_number_employee(
-  VAT varchar(255), --inteiro, certo?
+create table phone_number_employee
+ (VAT varchar(255), --inteiro, certo?
   phone integer, --ou varchar?
   primary key(VAT, phone),
-  foreign key(VAT)
-    references employee
-);
+  foreign key(VAT) references employee);
 
-create table receptionist(
-  VAT varchar(255), --inteiro, certo?
+create table receptionist
+ (VAT varchar(255), --inteiro, certo?
   primary key(VAT),
-  foreign key(VAT)
-    references employee
-);
+  foreign key(VAT) references employee);
 
-create table doctor(
-  VAT varchar(255), --inteiro, certo?
+create table doctor
+ (VAT varchar(255), --inteiro, certo?
   specialization varchar(255),
   biography varchar(255),--ou mais?
   e-mail varchar(255),
   primary key(VAT),
-  foreign key(VAT)
-    references employee,
-  unique(e-mail)
-);
+  foreign key(VAT) references employee,
+  unique(e-mail));
 --falta ICs: all doctors are...
 
-create table nurse(
-  VAT varchar(255), --inteiro, ceto?
+create table nurse
+ (VAT varchar(255), --inteiro, ceto?
   primary key(VAT),
-  foreign key(VAT)
-    references employee
-);
+  foreign key(VAT) references employee);
 
-create table client(
-  VAT varchar(255), --inteiro, certo?
+create table client
+ (VAT varchar(255), --inteiro, certo?
   name varchar(255),
   birth_date varchar(255),
   street varchar(255),
@@ -81,117 +72,92 @@ create table client(
   gender varchar(255), --será que são necessários 255? M/F
   age integer,
   primary key(VAT),
-  check(age > 0)
-);
+  check(age > 0));
 --age derived from birth_date, ver como...
 
-create table phone_number_client(
-  VAT varchar(255), --ineteiro, certo?
+create table phone_number_client
+ (VAT varchar(255), --ineteiro, certo?
   phone varchar(255),--?
   primary key(VAT, phone),
-  foreign key(VAT)
-    references client
-);
+  foreign key(VAT) references client);
 
-create table permanent_doctor(
-  VAT varchar(255),--inteiro,certo?
+create table permanent_doctor
+ (VAT varchar(255),--inteiro,certo?
   primary key(VAT),
-  foreign key(VAT)
-    references doctor
-);
+  foreign key(VAT) references doctor);
 
-create table trainee_doctor(
-  VAT varchar(255), --inteiro, certo?
+create table trainee_doctor
+ (VAT varchar(255), --inteiro, certo?
   supervisor varchar(255),
   primary key(VAT),
   foreign key(VAT) references doctor,
-  foreign key(supervisor)
-    references permanent_doctor
-);
+  foreign key(supervisor) references permanent_doctor);
 
-create table supervision_report(
-  VAT varchar(255), --inteiro?
+create table supervision_report
+ (VAT varchar(255), --inteiro?
   date_timestamp varchar(255),--varchar? ver noutros para alterar
   description varchar(255),
   evaluation integer,
   primary key(VAT, date_timestamp),
-  foreign key(VAT)
-    references trainee_doctor,
-  check(evaluation between 1 and 5) --aqui pode-se, certo?
-);
+  foreign key(VAT) references trainee_doctor,
+  check(evaluation between 1 and 5)); --aqui pode-se, certo?
 
-create table appointment(
-  VAT_doctor varchar(255), --inteiro?
+create table appointment
+ (VAT_doctor varchar(255), --inteiro?
   date_timestamp varchar(255),
   description varchar(255),
   VAT_client varchar(255),
   primary key(VAT_doctor, date_timestamp),
-  foreign key(VAT_doctor)
-    references doctor,
-  foreign key(VAT_client)
-    references client
-);
+  foreign key(VAT_doctor) references doctor,
+  foreign key(VAT_client) references client);
 
-create table consultation(
-  VAT_doctor varchar(255),
+create table consultation
+ (VAT_doctor varchar(255),
   date_timestamp varchar(255),
   SOAP_S varchar(255),
   SOAP_O varchar(255),
   SOAP_A varchar(255),
   SOAP_P varchar(255),
   primary key(VAT_doctor, date_timestamp),
-  foreign key(VAT_doctor, date_timestamp)
-    references appointment
-);
+  foreign key(VAT_doctor, date_timestamp) references appointment);
 --IC: consultations are always assigned  to at least 1 assistant nurse, como?
 
-create table consultation_assistant(
-  VAT_doctor varchar(255),
+create table consultation_assistant
+ (VAT_doctor varchar(255),
   date_timestamp varchar(255),
   VAT_nurse varchar(255),
   primary key(VAT_doctor, date_timestamp),
-  foreign key(VAT_doctor, date_timestamp)
-    references consultation,
-  foreign key(VAT_nurse)
-    references nurse
-);
+  foreign key(VAT_doctor, date_timestamp) references consultation,
+  foreign key(VAT_nurse) references nurse);
 
-create table diagnostic_code(
-  ID varchar(255), --confirmar!
+create table diagnostic_code
+ (ID varchar(255), --confirmar!
   description varchar(255),
-  primary key(ID)
-);
+  primary key(ID));
 
-create table diagnostic_code_relation(
-  ID1 varchar(255),--confirmar!
+create table diagnostic_code_relation
+ (ID1 varchar(255),--confirmar!
   ID2 varchar(255),
   type varchar(255)
   primary key(ID1, ID2),
-  foreign key(ID1)
-    references diagnostic_code,
-  foreign key(ID2)
-    references diagnostic_code
-);
+  foreign key(ID1) references diagnostic_code,
+  foreign key(ID2) references diagnostic_code);
 
-create table consultation_diagnostic(
-  VAT_doctor varchar(255),
+create table consultation_diagnostic
+ (VAT_doctor varchar(255),
   date_timestamp varchar(255),
   ID varchar(255),
   primary key(VAT_doctor, date_timestamp, ID),
-  foreign key(VAT_doctor, date_timestamp)
-    references consultation,
-  foreign key(ID)
-    references diagnostic_code
-);
+  foreign key(VAT_doctor, date_timestamp) references consultation,
+  foreign key(ID) references diagnostic_code);
 
-create table medication(
-  name varchar(255),
+create table medication
+ (name varchar(255),
   lab varchar(255),
-  primary key(name, lab)
-);
+  primary key(name, lab));
 
-create table prescription(
-  name varchar(255),
+create table prescription
+ (name varchar(255),
   lab varchar(255),
   VAT_doctor varchar(255),
   date_timestamp varchar(255),
@@ -199,49 +165,39 @@ create table prescription(
   dosage varchar(255), --como? como se fosse uma descrição
   description varchar(255),
   primary key(name, lab, VAT_doctor, date_timestamp, ID),
-  foreign key(VAT_doctor, date_timestamp, ID)
-    references consultation_diagnostic,
-  foreign key(name, lab)
-    references medication
-);
+  foreign key(VAT_doctor, date_timestamp, ID) references consultation_diagnostic,
+  foreign key(name, lab) references medication);
 
-create table procedure(
-  name varchar(255),
+create table procedure
+ (name varchar(255),
   type varchar(255),
-  primary key(name)
-);
+  primary key(name));
 
-create table procedure_in_consultation(
-  name varchar(255),
+create table procedure_in_consultation
+ (name varchar(255),
   VAT_doctor varchar(255),
   date_timestamp varchar(255),
   description varchar(255),
   primary key(name, VAT_doctor, date_timestamp),
-  foreign key(name)
-    references procedure,
-  foreign key(VAT_doctor, date_timestamp)
-    references consultation
-);
+  foreign key(name) references procedure,
+  foreign key(VAT_doctor, date_timestamp) references consultation);
 
-create table procedure_radiology(
-  name varchar(255),
+create table procedure_radiology
+ (name varchar(255),
   file varchar(255),
   VAT_doctor varchar(255),
   date_timestamp varchar(255),
   primary key(name, file, VAT_doctor, date_timestamp),
-  foreign key(name, VAT_doctor, date_timestamp)
-    references procedure_in_consultation
-);
+  foreign key(name, VAT_doctor, date_timestamp) references procedure_in_consultation);
 
-create table teeth(
-  quadrant integer, --varchar ou integer?: 1,2,3,4 quadrant
+create table teeth
+ (quadrant integer, --varchar ou integer?: 1,2,3,4 quadrant
   number integer,
   name varchar(255),
-  primary key(quadrant, number)
-);
+  primary key(quadrant, number));
 
-create table procedure_charting(
-  name varchar(255),
+create table procedure_charting
+ (name varchar(255),
   VAT varchar(255),
   date_timestamp varchar(255),
   quadrant integer(255), --varchar ou integer?: 1,2,3,4 quadrant
@@ -249,11 +205,8 @@ create table procedure_charting(
   desc varchar(255), --o que é desc?? descrição?
   measure varchar(255), --confirmar! float
   primary key(name, VAT, date_timestamp, quadrant, number),
-  foreign key(name, VAT, date_timestamp)
-    references procedure_in_consultation,
-  foreign key(quadrant, number)
-    references teeth
-);
+  foreign key(name, VAT, date_timestamp) references procedure_in_consultation,
+  foreign key(quadrant, number) references teeth);
 
 
 --vats, de que ordem de grandeza?
