@@ -16,15 +16,15 @@ drop table if exists diagnostic_code_relation;
 drop table if exists consultation_diagnostic;
 drop table if exists medication;
 drop table if exists prescription;
-drop table if exists _procedure; --pôr " "??
+drop table if exists _procedure; 
 drop table if exists procedure_in_consultation;
 drop table if exists procedure_radiology;
 drop table if exists teeth;
 drop table if exists procedure_charting;
 
 create table employee
- (VAT char(10), --Muda de nacionalidade para nacionalidade??
-  name varchar(255),
+ (VAT char(10), 
+  _name varchar(255),
   birth_date char(10),--Como definir datas?? ex.:YYYY-MM-DD
   street varchar(50),--255 não é demais??
   city varchar(50),
@@ -51,10 +51,10 @@ create table doctor
  (VAT char(10),
   specialization varchar(255),
   biography varchar(255),--255 chega para guardar texto??
-  e-mail varchar(255),
+  e_mail varchar(255),
   primary key(VAT),
   foreign key(VAT) references employee,
-  unique(e-mail));
+  unique(e_mail));
 --falta ICs: all doctors are...
 
 create table nurse
@@ -64,7 +64,7 @@ create table nurse
 
 create table client
  (VAT char(10),
-  name varchar(255),
+  _name varchar(255),
   birth_date varchar(255),
   street varchar(255),
   city varchar(255),
@@ -96,7 +96,7 @@ create table trainee_doctor
 create table supervision_report
  (VAT char(10),
   date_timestamp char(20),--como definir este tipo de data?? ex.:YYYY-MM-DD HH:MM:SS
-  description varchar(255),
+  _description varchar(255),
   evaluation integer,
   primary key(VAT, date_timestamp),
   foreign key(VAT) references trainee_doctor,
@@ -105,7 +105,7 @@ create table supervision_report
 create table appointment
  (VAT_doctor char(10),
   date_timestamp char(20),
-  description varchar(255),
+  _description varchar(255),
   VAT_client char(10),
   primary key(VAT_doctor, date_timestamp),
   foreign key(VAT_doctor) references doctor,
@@ -114,7 +114,7 @@ create table appointment
 create table consultation
  (VAT_doctor char(10),
   date_timestamp char(20),
-  SOAP_S varchar(255),--correcto??
+  SOAP_S varchar(255),
   SOAP_O varchar(255),
   SOAP_A varchar(255),
   SOAP_P varchar(255),
@@ -132,13 +132,13 @@ create table consultation_assistant
 
 create table diagnostic_code
  (ID char(10), --como definir esta variável?? ex.:??
-  description varchar(255),
+  _description varchar(255),
   primary key(ID));
 
 create table diagnostic_code_relation
  (ID1 char(10),
   ID2 char(10),
-  type varchar(255),
+  _type varchar(255),
   primary key(ID1, ID2),
   foreign key(ID1) references diagnostic_code,--foreign key(ID1, ID2) references diagnostic_code,??
   foreign key(ID2) references diagnostic_code);
@@ -152,49 +152,49 @@ create table consultation_diagnostic
   foreign key(ID) references diagnostic_code);
 
 create table medication
- (name varchar(255),
+ (_name varchar(255),
   lab varchar(255),
-  primary key(name, lab));
+  primary key(_name, lab));
 
 create table prescription
- (name varchar(255),
+ (_name varchar(255),
   lab varchar(255),
   VAT_doctor char(10),
   date_timestamp char(20),
   ID char(10),
   dosage varchar(255), --como definir este tipo de dados?? ex.:8h - 8h ou 8h ...
-  description varchar(255),
-  primary key(name, lab, VAT_doctor, date_timestamp, ID),
+  _description varchar(255),
+  primary key(_name, lab, VAT_doctor, date_timestamp, ID),
   foreign key(VAT_doctor, date_timestamp, ID) references consultation_diagnostic,
-  foreign key(name, lab) references medication);
+  foreign key(_name, lab) references medication);
 
-create table procedure
- (name varchar(255),
-  type varchar(255),
-  primary key(name));
+create table _procedure
+ (_name varchar(255),
+  _type varchar(255),
+  primary key(_name));
 
 create table procedure_in_consultation
- (name varchar(255),
+ (_name varchar(255),
   VAT_doctor char(10),
   date_timestamp char(20),
-  description varchar(255),
-  primary key(name, VAT_doctor, date_timestamp),
-  foreign key(name) references procedure,
+  _description varchar(255),
+  primary key(_name, VAT_doctor, date_timestamp),
+  foreign key(_name) references _procedure,
   foreign key(VAT_doctor, date_timestamp) references consultation);
 
 create table procedure_radiology
- (name varchar(255),
-  file varchar(255),--como definir este tipo de dados?? ex.:
+ (_name varchar(255),
+  _file varchar(255),--como definir este tipo de dados?? ex.:
   VAT_doctor char(10),
   date_timestamp char(20),
-  primary key(name, file, VAT_doctor, date_timestamp),
-  foreign key(name, VAT_doctor, date_timestamp) references procedure_in_consultation);
+  primary key(_name, _file, VAT_doctor, date_timestamp),
+  foreign key(_name, VAT_doctor, date_timestamp) references procedure_in_consultation);
 
 create table teeth
  (quadrant integer, --varchar ou integer?) 1,2,3,4 quadrant
   _number integer,--number não vai dar conflito na syntax?? 1 a 8
   _name varchar(255),
-  primary key(quadrant, number));
+  primary key(quadrant, _number));
 
 create table procedure_charting
  (_name varchar(255),
