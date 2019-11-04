@@ -16,7 +16,7 @@ drop table if exists diagnostic_code_relation;
 drop table if exists consultation_diagnostic;
 drop table if exists medication;
 drop table if exists prescription;
-drop table if exists procedure;
+drop table if exists procedure; --pôr " "?
 drop table if exists procedure_in_consultation;
 drop table if exists procedure_radiology;
 drop table if exists teeth;
@@ -139,7 +139,7 @@ create table consultation(
   SOAP_O varchar(255),
   SOAP_A varchar(255),
   SOAP_P varchar(255),
-  primary key(VAT_doctor, date_timestamp)),
+  primary key(VAT_doctor, date_timestamp),
   foreign key(VAT_doctor, date_timestamp)
     references appointment
 );
@@ -234,7 +234,7 @@ create table procedure_radiology(
 );
 
 create table teeth(
-  quadrant varchar(255), --varchar ou integer?: 1,2,3,4 quadrant
+  quadrant integer, --varchar ou integer?: 1,2,3,4 quadrant
   number integer,
   name varchar(255),
   primary key(quadrant, number)
@@ -242,9 +242,9 @@ create table teeth(
 
 create table procedure_charting(
   name varchar(255),
-  VAT varchar(255)(255),
+  VAT varchar(255),
   date_timestamp varchar(255),
-  quadrant varchar(255), --varchar ou integer?: 1,2,3,4 quadrant
+  quadrant integer(255), --varchar ou integer?: 1,2,3,4 quadrant
   number integer,
   desc varchar(255), --o que é desc?? descrição?
   measure varchar(255), --confirmar! float
@@ -257,20 +257,35 @@ create table procedure_charting(
 
 
 --vats, de que ordem de grandeza?
-insert into employee values('25', 'Jane Sweettooth', '30/September/78', 'Castanheiras Street', 'Lisboa','1100-300' '1234', 1000)--doutor
-insert into employee values('15', 'André Martins', '7/June/78', 'Técnico Avenue', 'Lisboa', '1110-450', '5323', 2000)--doutor
-insert into employee values('10', 'Jorge Goodenough', '12/May/38', 'Cinzeiro Street', 'Lisboa','1100-320' '4321', 1000)--doutor
-insert into employee values('11', 'Deolinda de Vila Mar', '6/September/67', 'Grande Campo Street', 'Lisboa','1100-270' '6979', 1000)--doutor
-insert into employee values('12', 'Hermelinda Boavida', '17/December/45', 'Cinco Batalhas Street', 'Lisboa', '1110-150', '5901', 2000)--enferm
-insert into employee values('13', 'Zacarias Fernandes', '3/February/50', 'Janelas Street', 'Lisboa', '1110-260', '6501', 2000)--enferm
-insert into employee values('14', 'Joaquim Ahmad', '14/March/65', 'Linhas de ferro Street', 'Lisboa','1100-100' '0912', 1000)--recep
-insert into employee values('16', 'Maria Peixeira', '2/January/80', 'Rés-do-chão Street', 'Lisboa', '1200-230', '6832', 2000)--recep
+insert into employee values('25001', 'Jane Sweettooth', '30/September/78', 'Castanheiras Street', 'Lisboa','1100-300', '1234', 1000);--doutor
+insert into employee values('15101', 'André Fernandes', '7/June/78', 'Técnico Avenue', 'Lisboa', '1110-450', '5323', 2000);--doutor
+insert into employee values('10120', 'Jorge Goodenough', '12/May/38', 'Cinzeiro Street', 'Lisboa','1100-320', '4321', 1000);--doutor
+insert into employee values('11982', 'Deolinda de Villa Mar', '6/September/67', 'Grande Campo Street', 'Lisboa','1100-270', '6979', 1000);--doutor
+insert into employee values('12309', 'Hermelinda Boavida', '17/December/45', 'Cinco Batalhas Street', 'Lisboa', '1110-150', '5901', 2000);--enferm
+insert into employee values('13490', 'Zacarias Fernandes', '3/February/50', 'Janelas Street', 'Lisboa', '1110-260', '6501', 2000);--enferm
+insert into employee values('14574', 'Joaquim Ahmad', '14/March/65', 'Linhas de ferro Street', 'Lisboa','1100-100', '0912', 1000);--recep
+insert into employee values('16347', 'Maria Peixeira', '2/January/80', 'Rés-do-chão Street', 'Lisboa', '1200-230', '6832', 2000);--recep
 
-insert into phone_number_employee('25', '1234')
-insert into phone_number_employee('15', '5678')
-insert into phone_number_employee('10', '9102')
-insert into phone_number_employee('11', '3456')
-insert into phone_number_employee('12', '7890')
-insert into phone_number_employee('13', '0123')
-insert into phone_number_employee('14', '4567')
-insert into phone_number_employee('16', '8901')
+insert into phone_number_employee values('25001', 1234);
+insert into phone_number_employee values('15101', 5678);
+insert into phone_number_employee values('10120', 9102);
+insert into phone_number_employee values('11982', 3456);
+insert into phone_number_employee values('12309', 7890);
+insert into phone_number_employee values('13490', 0123);
+insert into phone_number_employee values('14574', 4567);
+insert into phone_number_employee values('16347', 8901);
+
+insert into receptionist values('14574');
+insert into receptionist values('16347');
+
+insert into doctor values('25001', 'Anesthesiology', 'janesweettoth@gmail.com');
+insert into doctor values('15101', 'Pediatric dentistry', 'andrefernandes@gmail.com');
+insert into doctor values('10120', 'Dental public health', 'goodenough@gmail.com');
+insert into doctor values('11982', 'Implant dentistry', 'marvilla@gmail.com');
+
+insert into nurse values('12309');
+insert into nurse values('13490');
+
+insert into client values('14024', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');
+insert into client values('17324', 'José Maria', '4/October/98', 'Marinha Street', 'Lisbon', '1200-400', 'Male', '21');
+insert into client values('14924', 'Alexandre Ramos', '8/December/88', 'Dezembro Street', 'Lisbon', '1225-300', 'Male', '31');
