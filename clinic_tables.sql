@@ -263,7 +263,7 @@ insert into trainee_doctor values('10120', '25001');
 insert into supervision_report values('11982', '2019-11-04 14:15:03', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 4);
 
 insert into appointment values('25001', '2019-11-04 16:00:00', 'There is nothing more practical than a good practical theory', '17324');
-insert into appointment values('25001', '2019-12-04 16:00:00', 'Blá blu', '14001');
+insert into appointment values('25001', '2019-12-04 17:00:00', 'Blá blu', '14001');
 
 insert into consultation values('25001', '2019-11-04 16:00:00', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
 
@@ -271,7 +271,6 @@ insert into consultation_assistant values('25001', '2019-11-04 16:00:00', '12309
 
 insert into diagnostic_code values('321', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
 insert into diagnostic_code values('334', 'BABYSHARK');
-
 
 insert into diagnostic_code_relation values('321', '334', '')
 
@@ -281,4 +280,14 @@ insert into medication values('Ben-u-ron', 'Júlio de Matos LAB');
 
 insert into prescription values('Ben-u-ron', 'Júlio de Matos LAB', '25001', '2019-11-04 16:00:00', '321', '8h-8h', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
 
-insert into _procedure values('', 'Tooth extraction')
+insert into _procedure values('Tooth extraction', 'Extraction');
+insert into _procedure values('Maxillary molar periapical radiograph', 'Radiography exam)');
+insert into _procedure values('Root canal treatments', 'Cirurgy');
+
+insert into procedure_in_consultation values('Maxillary molar periapical radiograph', '25001', '2019-11-04 16:00:00', 'Great name');
+
+insert into procedure_radiology values('Maxillary molar periapical radiograph', 'thisfile', '25001', '2019-11-04 16:00:00');
+
+insert into teeth values(1, 8, 'Third molar');
+
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-11-04 16:00:00', 1, 8, 32.1);
