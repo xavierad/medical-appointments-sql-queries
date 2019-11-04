@@ -16,39 +16,39 @@ drop table if exists diagnostic_code_relation;
 drop table if exists consultation_diagnostic;
 drop table if exists medication;
 drop table if exists prescription;
-drop table if exists procedure; --pôr " "??
+drop table if exists _procedure; --pôr " "??
 drop table if exists procedure_in_consultation;
 drop table if exists procedure_radiology;
 drop table if exists teeth;
 drop table if exists procedure_charting;
 
 create table employee
- (VAT varchar(255), --Muda de nacionalidade para nacionalidade??
+ (VAT char(10), --Muda de nacionalidade para nacionalidade??
   name varchar(255),
-  birth_date varchar(255),--Como definir datas?? ex.:04/NOV/2019
-  street varchar(255),--255 não é demais??
-  city varchar(255),
-  zip varchar(255),
-  IBAN varchar(255),--Que tipo de IBAN se deve usar?? (34 caractéres)
-  salary integer,--Pode ter casas decimais??
+  birth_date char(10),--Como definir datas?? ex.:YYYY-MM-DD
+  street varchar(50),--255 não é demais??
+  city varchar(50),
+  zip varchar(50),
+  IBAN char(10),--Que tipo de IBAN se deve usar?? (34 caractéres)
+  salary numeric(5,2),--Pode ter casas decimais??
   primary key (VAT),
   check(salary > 0),
   unique(IBAN));
 --falta: ICs, all employees are...
 
 create table phone_number_employee
- (VAT varchar(255),
+ (VAT char(10),
   phone integer,--usamos sempre numeros de telefones de 9 digitos (nacionais)??
   primary key(VAT, phone),
   foreign key(VAT) references employee);
 
 create table receptionist
- (VAT varchar(255),
+ (VAT char(10),
   primary key(VAT),
   foreign key(VAT) references employee);
 
 create table doctor
- (VAT varchar(255),
+ (VAT char(10),
   specialization varchar(255),
   biography varchar(255),--255 chega para guardar texto??
   e-mail varchar(255),
@@ -58,44 +58,44 @@ create table doctor
 --falta ICs: all doctors are...
 
 create table nurse
- (VAT varchar(255),
+ (VAT char(10),
   primary key(VAT),
   foreign key(VAT) references employee);
 
 create table client
- (VAT varchar(255),
+ (VAT char(10),
   name varchar(255),
   birth_date varchar(255),
   street varchar(255),
   city varchar(255),
   zip varchar(255),
-  gender varchar(255), --será que são necessários 255?? M/F (char(1))
+  gender char(1), --será que são necessários 255?? M/F (char(1))
   age integer,
   primary key(VAT),
   check(age > 0));
 --age derived from birth_date, ver como...
 
 create table phone_number_client
- (VAT varchar(255),
-  phone varchar(255),
+ (VAT char(10),
+  phone integer,
   primary key(VAT, phone),
   foreign key(VAT) references client);
 
 create table permanent_doctor
- (VAT varchar(255),
+ (VAT char(10),
   primary key(VAT),
   foreign key(VAT) references doctor);
 
 create table trainee_doctor
- (VAT varchar(255),
-  supervisor varchar(255),
+ (VAT char(10),
+  supervisor char(10),
   primary key(VAT),
   foreign key(VAT) references doctor,
   foreign key(supervisor) references permanent_doctor);
 
 create table supervision_report
- (VAT varchar(255),
-  date_timestamp varchar(255),--como definir este tipo de data?? ex.:04/NOV/2019-14:13:34
+ (VAT char(10),
+  date_timestamp char(20),--como definir este tipo de data?? ex.:YYYY-MM-DD HH:MM:SS
   description varchar(255),
   evaluation integer,
   primary key(VAT, date_timestamp),
@@ -103,17 +103,17 @@ create table supervision_report
   check(evaluation between 1 and 5)); --está correcto??
 
 create table appointment
- (VAT_doctor varchar(255),
-  date_timestamp varchar(255),
+ (VAT_doctor char(10),
+  date_timestamp char(20),
   description varchar(255),
-  VAT_client varchar(255),
+  VAT_client char(10),
   primary key(VAT_doctor, date_timestamp),
   foreign key(VAT_doctor) references doctor,
   foreign key(VAT_client) references client);
 
 create table consultation
- (VAT_doctor varchar(255),
-  date_timestamp varchar(255),
+ (VAT_doctor char(10),
+  date_timestamp char(20),
   SOAP_S varchar(255),--correcto??
   SOAP_O varchar(255),
   SOAP_A varchar(255),
@@ -123,30 +123,30 @@ create table consultation
 --IC: consultations are always assigned  to at least 1 assistant nurse, como?
 
 create table consultation_assistant
- (VAT_doctor varchar(255),
-  date_timestamp varchar(255),
-  VAT_nurse varchar(255),
+ (VAT_doctor char(10),
+  date_timestamp char(20),
+  VAT_nurse char(10),
   primary key(VAT_doctor, date_timestamp),
   foreign key(VAT_doctor, date_timestamp) references consultation,
   foreign key(VAT_nurse) references nurse);
 
 create table diagnostic_code
- (ID varchar(255), --como definir esta variável?? ex.:??
+ (ID char(10), --como definir esta variável?? ex.:??
   description varchar(255),
   primary key(ID));
 
 create table diagnostic_code_relation
- (ID1 varchar(255),
-  ID2 varchar(255),
+ (ID1 char(10),
+  ID2 char(10),
   type varchar(255),
   primary key(ID1, ID2),
   foreign key(ID1) references diagnostic_code,--foreign key(ID1, ID2) references diagnostic_code,??
   foreign key(ID2) references diagnostic_code);
 
 create table consultation_diagnostic
- (VAT_doctor varchar(255),
-  date_timestamp varchar(255),
-  ID varchar(255),
+ (VAT_doctor char(10),
+  date_timestamp char(20),
+  ID char(10),
   primary key(VAT_doctor, date_timestamp, ID),
   foreign key(VAT_doctor, date_timestamp) references consultation,
   foreign key(ID) references diagnostic_code);
@@ -159,9 +159,9 @@ create table medication
 create table prescription
  (name varchar(255),
   lab varchar(255),
-  VAT_doctor varchar(255),
-  date_timestamp varchar(255),
-  ID varchar(255),
+  VAT_doctor char(10),
+  date_timestamp char(20),
+  ID char(10),
   dosage varchar(255), --como definir este tipo de dados?? ex.:8h - 8h ou 8h ...
   description varchar(255),
   primary key(name, lab, VAT_doctor, date_timestamp, ID),
@@ -175,8 +175,8 @@ create table procedure
 
 create table procedure_in_consultation
  (name varchar(255),
-  VAT_doctor varchar(255),
-  date_timestamp varchar(255),
+  VAT_doctor char(10),
+  date_timestamp char(20),
   description varchar(255),
   primary key(name, VAT_doctor, date_timestamp),
   foreign key(name) references procedure,
@@ -185,28 +185,28 @@ create table procedure_in_consultation
 create table procedure_radiology
  (name varchar(255),
   file varchar(255),--como definir este tipo de dados?? ex.:
-  VAT_doctor varchar(255),
-  date_timestamp varchar(255),
+  VAT_doctor char(10),
+  date_timestamp char(20),
   primary key(name, file, VAT_doctor, date_timestamp),
   foreign key(name, VAT_doctor, date_timestamp) references procedure_in_consultation);
 
 create table teeth
  (quadrant integer, --varchar ou integer?) 1,2,3,4 quadrant
-  number integer,--number não vai dar conflito na syntax??
-  name varchar(255),
+  _number integer,--number não vai dar conflito na syntax?? 1 a 8
+  _name varchar(255),
   primary key(quadrant, number));
 
 create table procedure_charting
- (name varchar(255),
-  VAT varchar(255),
-  date_timestamp varchar(255),
-  quadrant integer(255),
-  number integer,
-  desc varchar(255), --desc não vai dar conflito na syntax??
-  measure varchar(255), --varchar ou numeric??
-  primary key(name, VAT, date_timestamp, quadrant, number),
-  foreign key(name, VAT, date_timestamp) references procedure_in_consultation,
-  foreign key(quadrant, number) references teeth);
+ (_name varchar(255),
+  VAT char(10),
+  date_timestamp char(20),
+  quadrant integer,
+  _number integer,
+  _desc varchar(255), --desc não vai dar conflito na syntax??
+  measure numeric(2,1), --varchar ou numeric??
+  primary key(_name, VAT, date_timestamp, quadrant, _number),
+  foreign key(_name, VAT, date_timestamp) references procedure_in_consultation,
+  foreign key(quadrant, _number) references teeth);
 
 
 --vats, de que ordem de grandeza?
