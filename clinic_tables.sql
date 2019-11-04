@@ -23,34 +23,34 @@ drop table if exists teeth;
 drop table if exists procedure_charting;
 
 create table employee
- (VAT varchar(255), --inteiro ou varchar?
+ (VAT varchar(255), --Muda de nacionalidade para nacionalidade??
   name varchar(255),
-  birth_date varchar(255),--talvez char ou varchar? DEFINIR
-  street varchar(255),--há algum problema em pôr em todos 255?
+  birth_date varchar(255),--Como definir datas?? ex.:04/NOV/2019
+  street varchar(255),--255 não é demais??
   city varchar(255),
   zip varchar(255),
-  IBAN varchar(255),--integer? se sim, com quantos dígitos?
-  salary integer,
+  IBAN varchar(255),--Que tipo de IBAN se deve usar?? (34 caractéres)
+  salary integer,--Pode ter casas decimais??
   primary key (VAT),
   check(salary > 0),
   unique(IBAN));
 --falta: ICs, all employees are...
 
 create table phone_number_employee
- (VAT varchar(255), --inteiro, certo?
-  phone integer, --ou varchar?
+ (VAT varchar(255),
+  phone integer,--usamos sempre numeros de telefones de 9 digitos (nacionais)??
   primary key(VAT, phone),
   foreign key(VAT) references employee);
 
 create table receptionist
- (VAT varchar(255), --inteiro, certo?
+ (VAT varchar(255),
   primary key(VAT),
   foreign key(VAT) references employee);
 
 create table doctor
- (VAT varchar(255), --inteiro, certo?
+ (VAT varchar(255),
   specialization varchar(255),
-  biography varchar(255),--ou mais?
+  biography varchar(255),--255 chega para guardar texto??
   e-mail varchar(255),
   primary key(VAT),
   foreign key(VAT) references employee,
@@ -58,52 +58,52 @@ create table doctor
 --falta ICs: all doctors are...
 
 create table nurse
- (VAT varchar(255), --inteiro, ceto?
+ (VAT varchar(255),
   primary key(VAT),
   foreign key(VAT) references employee);
 
 create table client
- (VAT varchar(255), --inteiro, certo?
+ (VAT varchar(255),
   name varchar(255),
   birth_date varchar(255),
   street varchar(255),
   city varchar(255),
   zip varchar(255),
-  gender varchar(255), --será que são necessários 255? M/F
+  gender varchar(255), --será que são necessários 255?? M/F (char(1))
   age integer,
   primary key(VAT),
   check(age > 0));
 --age derived from birth_date, ver como...
 
 create table phone_number_client
- (VAT varchar(255), --ineteiro, certo?
-  phone varchar(255),--?
+ (VAT varchar(255),
+  phone varchar(255),
   primary key(VAT, phone),
   foreign key(VAT) references client);
 
 create table permanent_doctor
- (VAT varchar(255),--inteiro,certo?
+ (VAT varchar(255),
   primary key(VAT),
   foreign key(VAT) references doctor);
 
 create table trainee_doctor
- (VAT varchar(255), --inteiro, certo?
+ (VAT varchar(255),
   supervisor varchar(255),
   primary key(VAT),
   foreign key(VAT) references doctor,
   foreign key(supervisor) references permanent_doctor);
 
 create table supervision_report
- (VAT varchar(255), --inteiro?
-  date_timestamp varchar(255),--varchar? ver noutros para alterar
+ (VAT varchar(255),
+  date_timestamp varchar(255),--como definir este tipo de data?? ex.:04/NOV/2019-14:13:34
   description varchar(255),
   evaluation integer,
   primary key(VAT, date_timestamp),
   foreign key(VAT) references trainee_doctor,
-  check(evaluation between 1 and 5)); --aqui pode-se, certo?
+  check(evaluation between 1 and 5)); --está correcto??
 
 create table appointment
- (VAT_doctor varchar(255), --inteiro?
+ (VAT_doctor varchar(255),
   date_timestamp varchar(255),
   description varchar(255),
   VAT_client varchar(255),
@@ -114,7 +114,7 @@ create table appointment
 create table consultation
  (VAT_doctor varchar(255),
   date_timestamp varchar(255),
-  SOAP_S varchar(255),
+  SOAP_S varchar(255),--correcto??
   SOAP_O varchar(255),
   SOAP_A varchar(255),
   SOAP_P varchar(255),
@@ -131,16 +131,16 @@ create table consultation_assistant
   foreign key(VAT_nurse) references nurse);
 
 create table diagnostic_code
- (ID varchar(255), --confirmar!
+ (ID varchar(255), --como definir esta variável?? ex.:??
   description varchar(255),
   primary key(ID));
 
 create table diagnostic_code_relation
- (ID1 varchar(255),--confirmar!
+ (ID1 varchar(255),
   ID2 varchar(255),
   type varchar(255)
   primary key(ID1, ID2),
-  foreign key(ID1) references diagnostic_code,
+  foreign key(ID1) references diagnostic_code,--foreign key(ID1, ID2) references diagnostic_code,??
   foreign key(ID2) references diagnostic_code);
 
 create table consultation_diagnostic
@@ -162,7 +162,7 @@ create table prescription
   VAT_doctor varchar(255),
   date_timestamp varchar(255),
   ID varchar(255),
-  dosage varchar(255), --como? como se fosse uma descrição
+  dosage varchar(255), --como definir este tipo de dados?? ex.:8h - 8h ou 8h ...
   description varchar(255),
   primary key(name, lab, VAT_doctor, date_timestamp, ID),
   foreign key(VAT_doctor, date_timestamp, ID) references consultation_diagnostic,
@@ -184,15 +184,15 @@ create table procedure_in_consultation
 
 create table procedure_radiology
  (name varchar(255),
-  file varchar(255),
+  file varchar(255),--como definir este tipo de dados?? ex.:
   VAT_doctor varchar(255),
   date_timestamp varchar(255),
   primary key(name, file, VAT_doctor, date_timestamp),
   foreign key(name, VAT_doctor, date_timestamp) references procedure_in_consultation);
 
 create table teeth
- (quadrant integer, --varchar ou integer?: 1,2,3,4 quadrant
-  number integer,
+ (quadrant integer, --varchar ou integer?) 1,2,3,4 quadrant
+  number integer,--number não vai dar conflito na syntax??
   name varchar(255),
   primary key(quadrant, number));
 
@@ -200,10 +200,10 @@ create table procedure_charting
  (name varchar(255),
   VAT varchar(255),
   date_timestamp varchar(255),
-  quadrant integer(255), --varchar ou integer?: 1,2,3,4 quadrant
+  quadrant integer(255),
   number integer,
-  desc varchar(255), --o que é desc?? descrição?
-  measure varchar(255), --confirmar! float
+  desc varchar(255), --desc não vai dar conflito na syntax??
+  measure varchar(255), --varchar ou numeric??
   primary key(name, VAT, date_timestamp, quadrant, number),
   foreign key(name, VAT, date_timestamp) references procedure_in_consultation,
   foreign key(quadrant, number) references teeth);
