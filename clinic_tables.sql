@@ -249,7 +249,7 @@ insert into client values('14009', 'Pedro Martin', '1998-12-07', 'Lumiar Street'
 insert into client values('14010', 'Xavier Dias', '1998-02-24', 'Almeida Negreiros Street', 'Sintra', '1300-590', 'M', 59);
 insert into client values('14024', 'Maria José', '1960-05-14', 'Alves Redol Street', 'Lisbon', '2725-300', 'F', 59);
 insert into client values('17324', 'José Maria Turras', '1998-10-04', 'Marinha Street', 'Lisbon', '1200-400', 'M', 21);
-insert into client values('14924', 'Alexandre Ramos', '1988-12-08', 'Dezembro Street', 'Lisbon', '1225-300', 'M', 31);
+insert into client values('14924', 'Alexandrino Ramos', '1988-12-08', 'Dezembro Street', 'Lisbon', '1225-300', 'M', 31);
 insert into client values('14001', 'Rafael Silva', '1989-12-21', 'Seixal Street', 'Lisbon', '1305-400', 'M', 30);
 
 insert into phone_number_client values('14002', 9123);
@@ -261,6 +261,7 @@ insert into trainee_doctor values('11982', '15101');
 insert into trainee_doctor values('10120', '25001');
 
 insert into supervision_report values('11982', '2019-11-04 14:15:03', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 4);
+insert into supervision_report values('10120', '2019-12-04 00:10:03', 'Something plus insufficient', 1);
 
 insert into appointment values('25001', '2019-11-04 16:00:00', 'There is nothing more practical than a good practical theory', '17324');
 insert into appointment values('25001', '2019-12-04 17:00:00', 'Blá blu', '14001');
