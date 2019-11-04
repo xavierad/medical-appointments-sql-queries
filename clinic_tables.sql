@@ -16,7 +16,7 @@ drop table if exists diagnostic_code_relation;
 drop table if exists consultation_diagnostic;
 drop table if exists medication;
 drop table if exists prescription;
-drop table if exists procedure; --pôr " "?
+drop table if exists procedure; --pôr " "??
 drop table if exists procedure_in_consultation;
 drop table if exists procedure_radiology;
 drop table if exists teeth;
@@ -138,7 +138,7 @@ create table diagnostic_code
 create table diagnostic_code_relation
  (ID1 varchar(255),
   ID2 varchar(255),
-  type varchar(255)
+  type varchar(255),
   primary key(ID1, ID2),
   foreign key(ID1) references diagnostic_code,--foreign key(ID1, ID2) references diagnostic_code,??
   foreign key(ID2) references diagnostic_code);
