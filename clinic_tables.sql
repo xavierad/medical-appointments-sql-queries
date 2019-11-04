@@ -16,14 +16,14 @@ drop table if exists diagnostic_code_relation;
 drop table if exists consultation_diagnostic;
 drop table if exists medication;
 drop table if exists prescription;
-drop table if exists _procedure; 
+drop table if exists _procedure;
 drop table if exists procedure_in_consultation;
 drop table if exists procedure_radiology;
 drop table if exists teeth;
 drop table if exists procedure_charting;
 
 create table employee
- (VAT char(10), 
+ (VAT char(10),
   _name varchar(255),
   birth_date char(10),--ex.:YYYY-MM-DD
   street varchar(50),
@@ -209,7 +209,7 @@ create table procedure_charting
   foreign key(quadrant, _number) references teeth);
 
 
-insert into employee values('25001', 'Jane Sweettooth', '30/September/78', 'Castanheiras Street', 'Lisboa','1100-300', '1234', 1000);--doutor
+insert into employee values('25001', 'Jane Sweettooth', '1978-September-30', 'Castanheiras Street', 'Lisboa','1100-300', '1234', 1000);--doutor
 insert into employee values('15101', 'André Fernandes', '7/June/78', 'Técnico Avenue', 'Lisboa', '1110-450', '5323', 2000);--doutor
 insert into employee values('10120', 'Jorge Goodenough', '12/May/38', 'Cinzeiro Street', 'Lisboa','1100-320', '4321', 1000);--doutor
 insert into employee values('11982', 'Deolinda de Villa Mar', '6/September/67', 'Grande Campo Street', 'Lisboa','1100-270', '6979', 1000);--doutor
@@ -238,29 +238,47 @@ insert into doctor values('11982', 'Implant dentistry', 'marvilla@gmail.com');
 insert into nurse values('12309');
 insert into nurse values('13490');
 
-insert into client values('14002', 'João Tavares', '31/December/98', 'Buenos Aires Street', 'Lisbon', '1200-632', 'Male', '20');
-insert into client values('14003', 'Maria Barracosa', '18/July/99', 'Poeta Bocage Street', 'Lisbon', '1100-020', 'Female', '20');
-insert into client values('14004', 'Benedita Rosa', '18/April/00', 'Liberty Avenue', 'Lisbon', '1400-270', 'Female', '19');
-insert into client values('14005', 'Rosa Mota', '31/May/62', 'Mota Rosa Street', 'Setubal', '1800-032', 'Female', '57');
-insert into client values('14006', 'Eusébio Ferreira', '07/June/52', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '67');
-insert into client values('14007', 'Mário Coluna', '13/March/97', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '22');
-insert into client values('14008', 'Adalberto Correia', '17/August/79', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '40');              
-insert into client values('14009', 'Pedro Martin', '07/December/98', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');
-insert into client values('14010', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14011', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14021', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14022', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14023', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');
-insert into client values('14024', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14025', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14026', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14027', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14028', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14029', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-              
-              
-              
-insert into client values('14024', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');
-insert into client values('17324', 'José Maria', '4/October/98', 'Marinha Street', 'Lisbon', '1200-400', 'Male', '21');
-insert into client values('14924', 'Alexandre Ramos', '8/December/88', 'Dezembro Street', 'Lisbon', '1225-300', 'Male', '31');            
-insert into client values('14001', 'Rafael Silva', '21/December/89', 'Seixal Street', 'Lisbon', '1305-400', 'Male', '30');
+insert into client values('14002', 'João Tavares', '1998-12-31', 'Buenos Aires Street', 'Lisbon', '1200-632', 'M', 20);
+insert into client values('14003', 'Maria Barracosa', '1999-07-18', 'Poeta Bocage Street', 'Lisbon', '1100-020', 'F', 20);
+insert into client values('14004', 'Benedita Alves', '2000-04-18', 'Liberty Avenue', 'Lisbon', '1400-270', 'F', 19);
+insert into client values('14005', 'Rosa Mota', '1962-05-31', 'Mota Rosa Street', 'Setubal', '1800-032', 'F', 57);
+insert into client values('14006', 'Eusébio Ferreira', '1952-06-07', 'Fernando Pessoa Street', 'Lisbon', '2725-300', 'M', 67);
+insert into client values('14007', 'Maria Coluna', '1997-03-13', 'Miguel Torga Street', 'Lisbon', '2725-300', 'F', 22);
+insert into client values('14008', 'Adalberto Correia', '1979-08-17', 'Lagos Street', 'Lisbon', '2725-300', 'M', 40);
+insert into client values('14009', 'Pedro Martin', '1998-12-07', 'Lumiar Street', 'Lisbon', '1020-780', 'M', 20);
+insert into client values('14010', 'Xavier Dias', '1998-02-24', 'Almeida Negreiros Street', 'Sintra', '1300-590', 'M', 59);
+insert into client values('14024', 'Maria José', '1960-05-14', 'Alves Redol Street', 'Lisbon', '2725-300', 'F', 59);
+insert into client values('17324', 'José Maria Turras', '1998-10-04', 'Marinha Street', 'Lisbon', '1200-400', 'M', 21);
+insert into client values('14924', 'Alexandre Ramos', '1988-12-08', 'Dezembro Street', 'Lisbon', '1225-300', 'M', 31);
+insert into client values('14001', 'Rafael Silva', '1989-12-21', 'Seixal Street', 'Lisbon', '1305-400', 'M', 30);
+
+insert into phone_number_client values('14002', 9123);
+
+insert into permanent_doctor values('25001');
+insert into permanent_doctor values('15101');
+
+insert into trainee_doctor values('11982', '15101');
+insert into trainee_doctor values('10120', '25001');
+
+insert into supervision_report values('11982', '2019-11-04 14:15:03', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 4);
+
+insert into appointment values('25001', '2019-11-04 16:00:00', 'Blá blá', '17324');
+insert into appointment values('25001', '2019-12-04 16:00:00', 'Blá blu', '14001');
+
+insert into consultation values('25001', '2019-11-04 16:00:00', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
+
+insert into consultation_assistant values('25001', '2019-11-04 16:00:00', '12309');
+
+insert into diagnostic_code values('321', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
+insert into diagnostic_code values('334', 'BABYSHARK');
+
+
+insert into diagnostic_code_relation values('321', '334', '')
+
+insert into consultation_diagnostic values('25001', '2019-11-04 16:00:00', '321');
+
+insert into medication values('Ben-u-ron', 'Júlio de Matos LAB');
+
+insert into prescription values('Ben-u-ron', 'Júlio de Matos LAB', '25001', '2019-11-04 16:00:00', '321', '8h-8h', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
+
+insert into _procedure values('', 'Tooth extraction')
