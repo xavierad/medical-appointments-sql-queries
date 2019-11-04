@@ -16,14 +16,12 @@ drop table if exists diagnostic_code_relation;
 drop table if exists consultation_diagnostic;
 drop table if exists medication;
 drop table if exists prescription;
-drop table if exists _procedure; 
 drop table if exists procedure_in_consultation;
 drop table if exists procedure_radiology;
 drop table if exists teeth;
 drop table if exists procedure_charting;
 
 create table employee
- (VAT char(10), 
   _name varchar(255),
   birth_date char(10),--ex.:YYYY-MM-DD
   street varchar(50),
@@ -239,29 +237,3 @@ insert into doctor values('11982', 'Implant dentistry', 'marvilla@gmail.com');
 insert into nurse values('12309');
 insert into nurse values('13490');
 
-insert into client values('14002', 'João Tavares', '31/December/98', 'Buenos Aires Street', 'Lisbon', '1200-632', 'Male', '20');
-insert into client values('14003', 'Maria Barracosa', '18/July/99', 'Poeta Bocage Street', 'Lisbon', '1100-020', 'Female', '20');
-insert into client values('14004', 'Benedita Rosa', '18/April/00', 'Liberty Avenue', 'Lisbon', '1400-270', 'Female', '19');
-insert into client values('14005', 'Rosa Mota', '31/May/62', 'Mota Rosa Street', 'Setubal', '1800-032', 'Female', '57');
-insert into client values('14006', 'Eusébio Ferreira', '07/June/52', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '67');
-insert into client values('14007', 'Mário Coluna', '13/March/97', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '22');
-insert into client values('14008', 'Adalberto Correia', '17/August/79', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '40');              
-insert into client values('14009', 'Pedro Martin', '07/December/98', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');
-insert into client values('14010', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14011', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14021', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14022', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14023', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');
-insert into client values('14024', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14025', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14026', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14027', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14028', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-insert into client values('14029', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');              
-              
-              
-              
-insert into client values('14024', 'Maria José', '14/May/60', 'Lagos Street', 'Lisbon', '2725-300', 'Female', '59');
-insert into client values('17324', 'José Maria', '4/October/98', 'Marinha Street', 'Lisbon', '1200-400', 'Male', '21');
-insert into client values('14924', 'Alexandre Ramos', '8/December/88', 'Dezembro Street', 'Lisbon', '1225-300', 'Male', '31');            
-insert into client values('14001', 'Rafael Silva', '21/December/89', 'Seixal Street', 'Lisbon', '1305-400', 'Male', '30');
