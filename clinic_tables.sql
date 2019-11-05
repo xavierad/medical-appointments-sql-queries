@@ -260,11 +260,11 @@ insert into permanent_doctor values('15101');
 insert into trainee_doctor values('11982', '15101');
 insert into trainee_doctor values('10120', '25001');
 
-insert into supervision_report values('11982', '2019-11-04 14:15:03', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 4);
+insert into supervision_report values('11982', '2019-11-04 14:15:03', 'Very good!', 4);
 insert into supervision_report values('10120', '2019-12-04 00:10:03', 'Something plus insufficient', 1);
 
 insert into appointment values('25001', '2019-11-04 16:00:00', 'There is nothing more practical than a good practical theory', '17324');
-insert into appointment values('25001', '2019-12-04 17:00:00', 'Blá blu', '14001');
+insert into appointment values('25001', '2019-12-04 17:00:00', 'Madness is like gravity, all it needs is a little push!', '14001');
 
 insert into consultation values('25001', '2019-11-04 16:00:00', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
 
