@@ -273,7 +273,6 @@ insert into consultation_assistant values('25001', '2019-11-04 16:00:00', '12309
 insert into diagnostic_code values('321', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
 insert into diagnostic_code values('334', 'BABYSHARK');
 
-insert into diagnostic_code_relation values('321', '334', '')
 
 insert into consultation_diagnostic values('25001', '2019-11-04 16:00:00', '321');
 
