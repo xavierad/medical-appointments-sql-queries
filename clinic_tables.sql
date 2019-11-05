@@ -267,8 +267,11 @@ insert into supervision_report values('10120', '2019-12-04 00:10:03', 'Something
 
 insert into appointment values('25001', '2019-11-04 16:00:00', 'There is nothing more practical than a good practical theory', '17324');
 insert into appointment values('25001', '2019-12-04 17:00:00', 'Madness is like gravity, all it needs is a little push!', '14001');
+insert into appointment values('25001', '2019-12-05 17:25:00', 'Madness is like ...', '14007');
+
 
 insert into consultation values('25001', '2019-11-04 16:00:00', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'Something plus observation', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
+insert into consultation values('25001', '2019-11-05 17:25:00', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'Something plus observation', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
 
 insert into consultation_assistant values('25001', '2019-11-04 16:00:00', '12309');
 
