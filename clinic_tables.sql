@@ -254,7 +254,10 @@ insert into client values('17324', 'José Maria Turras', '1998-10-04', 'Marinha 
 insert into client values('14924', 'Alexandrino Ramos', '1988-12-08', 'Dezembro Street', 'Lisbon', '1225-300', 'M', 31);
 insert into client values('14001', 'Rafael Silva', '1989-12-21', 'Seixal Street', 'Lisbon', '1305-400', 'M', 30);
 
-insert into phone_number_client values('14002', 9123);
+insert into phone_number_client values('14002', 1234);
+insert into phone_number_client values('17324', 1285);
+insert into phone_number_client values('14001', 9123);
+insert into phone_number_client values('14924', 1010);
 
 insert into permanent_doctor values('25001');
 insert into permanent_doctor values('15101');
@@ -266,12 +269,18 @@ insert into supervision_report values('11982', '2019-11-04 14:15:03', 'Very good
 insert into supervision_report values('10120', '2019-12-04 00:10:03', 'Something plus insufficient', 1);
 
 insert into appointment values('25001', '2019-11-04 16:00:00', 'There is nothing more practical than a good practical theory', '17324');
-insert into appointment values('25001', '2019-12-04 17:00:00', 'Madness is like gravity, all it needs is a little push!', '14001');
-insert into appointment values('25001', '2019-12-05 17:25:00', 'Madness is like ...', '14007');
+insert into appointment values('25001', '2019-11-04 17:00:00', 'Madness is like gravity, all it needs is a little push!', '14001');
+insert into appointment values('15101', '2019-11-05 17:25:00', 'Madness is like ...', '14007');
+insert into appointment values('11982', '2019-11-05 12:25:00', 'My madness....', '14003');
+insert into appointment values('25001', '2019-12-05 16:05:00', 'My madness....', '14924');
+insert into appointment values('25001', '2019-12-14 13:05:00', 'My madness....', '14924');
+insert into appointment values('25001', '2019-12-15 19:05:00', 'My madness....', '14005');
 
-
-insert into consultation values('25001', '2019-11-04 16:00:00', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'Something plus observation', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
-insert into consultation values('25001', '2019-11-05 17:25:00', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'Something plus observation', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
+insert into consultation values('25001', '2019-11-04 16:00:00', 'This is my soap', 'Something plus observation', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
+insert into consultation values('25001', '2019-11-04 17:00:00', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'Something plus observation', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
+insert into consultation values('15101', '2019-11-05 17:25:00', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'Something plus observation', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
+insert into consultation values('25001', '2019-12-05 16:05:00', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'Something plus observation', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
+insert into consultation values('25001', '2019-12-14 13:05:00', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'Something plus observation', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
 
 insert into consultation_assistant values('25001', '2019-11-04 16:00:00', '12309');
 
