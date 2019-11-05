@@ -287,11 +287,11 @@ insert into appointment values('25001', '2019-12-05 16:05:00', 'My madness....',
 insert into appointment values('25001', '2019-12-14 13:05:00', 'My madness....', '14013');
 insert into appointment values('25001', '2019-12-15 19:05:00', 'My madness....', '14005');
 
-insert into consultation values('25001', '2019-11-04 16:00:00', 'This is my s-soap', 'This is my o-soap', 'This is my a-soap', 'This is my p-soap');
+insert into consultation values('25001', '2019-11-04 16:00:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('25001', '2019-11-04 17:00:00', 'This is my s-soap', 'This is my o-soap', 'This is my a-soap', 'This is my p-soap');
-insert into consultation values('15101', '2019-11-05 17:25:00', 'This is my s-soap', 'This is my o-soap', 'This is my a-soap', 'This is my p-soap');
+insert into consultation values('15101', '2019-11-05 17:25:00', 'This is my s-soap', 'periodontitis', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('25001', '2019-12-05 16:05:00', 'This is my s-soap', 'This is my o-soap', 'This is my a-soap', 'This is my p-soap');
-insert into consultation values('25001', '2019-12-14 13:05:00', 'This is my s-soap', 'This is my o-soap', 'This is my a-soap', 'This is my p-soap');
+insert into consultation values('25001', '2019-12-14 13:05:00', 'This is my s-soap', 'gingivitis and periodontitis', 'This is my a-soap', 'This is my p-soap');
 
 insert into consultation_assistant values('25001', '2019-11-04 16:00:00', '12309');
 insert into consultation_assistant values('25001', '2019-11-04 17:00:00', '13490');
