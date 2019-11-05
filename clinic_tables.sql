@@ -1,3 +1,4 @@
+SET foreign_key_checks = 0;
 drop table if exists employee;
 drop table if exists phone_number_employee;
 drop table if exists receptionist;
@@ -21,6 +22,7 @@ drop table if exists procedure_in_consultation;
 drop table if exists procedure_radiology;
 drop table if exists teeth;
 drop table if exists procedure_charting;
+SET foreign_key_checks = 1;
 
 create table employee
  (VAT char(10),
@@ -30,7 +32,7 @@ create table employee
   city varchar(50),
   zip varchar(50),
   IBAN char(10),
-  salary numeric(5,2),
+  salary numeric(7,2), -- 7 dígitos (total), 2 depois da virgula
   primary key (VAT),
   check(salary > 0),
   unique(IBAN));
@@ -65,7 +67,7 @@ create table nurse
 create table client
  (VAT char(10),
   _name varchar(255),
-  birth_date varchar(255),
+  birth_date char(10),
   street varchar(255),
   city varchar(255),
   zip varchar(255),
@@ -90,7 +92,7 @@ create table trainee_doctor
  (VAT char(10),
   supervisor char(10),
   primary key(VAT),
-  foreign key(VAT) references doctor,
+  foreign key(VAT) references doctor(VAT),
   foreign key(supervisor) references permanent_doctor(VAT));
 
 create table supervision_report
@@ -165,8 +167,8 @@ create table prescription
   dosage varchar(255),-- ex.:8h-8h
   _description varchar(255),
   primary key(_name, lab, VAT_doctor, date_timestamp, ID),
-  foreign key(VAT_doctor, date_timestamp, ID) references consultation_diagnostic(VAT, date_timestamp),
-  foreign key(_name, lab) references medication(_name, lab));
+  foreign key(_name, lab) references medication(_name, lab),
+  foreign key(VAT_doctor, date_timestamp, ID) references consultation_diagnostic(VAT_doctor, date_timestamp, ID));
 
 create table _procedure
  (_name varchar(255),
@@ -179,7 +181,7 @@ create table procedure_in_consultation
   date_timestamp char(20),
   _description varchar(255),
   primary key(_name, VAT_doctor, date_timestamp),
-  foreign key(_name) references _procedure(_name, _type),
+  foreign key(_name) references _procedure(_name),
   foreign key(VAT_doctor, date_timestamp) references consultation(VAT_doctor, date_timestamp));
 
 create table procedure_radiology
@@ -203,20 +205,20 @@ create table procedure_charting
   quadrant integer,
   _number integer,
   _desc varchar(255),
-  measure numeric(2,1),
+  measure numeric(3,1), -- 3 digiost no total, 1 depois da virgula
   primary key(_name, VAT, date_timestamp, quadrant, _number),
   foreign key(_name, VAT, date_timestamp) references procedure_in_consultation(_name, VAT_doctor, date_timestamp),
   foreign key(quadrant, _number) references teeth(quadrant, _number));
 
 
-insert into employee values('25001', 'Jane Sweettooth', '1978-September-30', 'Castanheiras Street', 'Lisboa','1100-300', '1234', 1000);-- doutor
-insert into employee values('15101', 'André Fernandes', '7/June/78', 'Técnico Avenue', 'Lisboa', '1110-450', '5323', 2000);-- doutor
-insert into employee values('10120', 'Jorge Goodenough', '12/May/38', 'Cinzeiro Street', 'Lisboa','1100-320', '4321', 1000);-- doutor
-insert into employee values('11982', 'Deolinda de Villa Mar', '6/September/67', 'Grande Campo Street', 'Lisboa','1100-270', '6979', 1000);-- doutor
-insert into employee values('12309', 'Ermelinda Boavida', '17/December/45', 'Cinco Batalhas Street', 'Lisboa', '1110-150', '5901', 2000);-- enferm
-insert into employee values('13490', 'Zacarias Fernandes', '3/February/50', 'Janelas Street', 'Lisboa', '1110-260', '6501', 2000);-- enferm
-insert into employee values('14574', 'Joaquim Ahmad', '14/March/65', 'Linhas de ferro Street', 'Lisboa','1100-100', '0912', 1000);-- recep
-insert into employee values('16347', 'Maria Peixeira', '2/January/80', 'Rés-do-chão Street', 'Lisboa', '1200-230', '6832', 2000);-- recep
+insert into employee values('25001', 'Jane Sweettooth', '1978-09-30', 'Castanheiras Street', 'Lisboa','1100-300', '1234', 1000);-- doutor
+insert into employee values('15101', 'André Fernandes', '1978-06-07', 'Técnico Avenue', 'Lisboa', '1110-450', '5323', 2000);-- doutor
+insert into employee values('10120', 'Jorge Goodenough', '1938-05-12', 'Cinzeiro Street', 'Lisboa','1100-320', '4321', 1000);-- doutor
+insert into employee values('11982', 'Deolinda de Villa Mar', '1967-09-06', 'Grande Campo Street', 'Lisboa','1100-270', '6979', 1000);-- doutor
+insert into employee values('12309', 'Ermelinda Boavida', '1945-12-17', 'Cinco Batalhas Street', 'Lisboa', '1110-150', '5901', 2000);-- enferm
+insert into employee values('13490', 'Zacarias Fernandes', '1950-02-3', 'Janelas Street', 'Lisboa', '1110-260', '6501', 2000);-- enferm
+insert into employee values('14574', 'Joaquim Ahmad', '1965-03-14', 'Linhas de ferro Street', 'Lisboa','1100-100', '0912', 1000);-- recep
+insert into employee values('16347', 'Maria Peixeira', '1980-01-02', 'Rés-do-chão Street', 'Lisboa', '1200-230', '6832', 2000);-- recep
 
 insert into phone_number_employee values('25001', 1234);
 insert into phone_number_employee values('15101', 5678);
@@ -230,10 +232,10 @@ insert into phone_number_employee values('16347', 8901);
 insert into receptionist values('14574');
 insert into receptionist values('16347');
 
-insert into doctor values('25001', 'Anesthesiology', 'janesweettoth@gmail.com');
-insert into doctor values('15101', 'Pediatric dentistry', 'andrefernandes@gmail.com');
-insert into doctor values('10120', 'Dental public health', 'goodenough@gmail.com');
-insert into doctor values('11982', 'Implant dentistry', 'marvilla@gmail.com');
+insert into doctor values('25001', 'Anesthesiology', 'this is Janes biography', 'janesweettoth@gmail.com');
+insert into doctor values('15101', 'Pediatric dentistry', 'this is Andres biography','andrefernandes@gmail.com');
+insert into doctor values('10120', 'Dental public health', 'this is Jorges biography','goodenough@gmail.com');
+insert into doctor values('11982', 'Implant dentistry','this is Deolinda biography', 'marvilla@gmail.com');
 
 insert into nurse values('12309');
 insert into nurse values('13490');
@@ -266,20 +268,20 @@ insert into supervision_report values('10120', '2019-12-04 00:10:03', 'Something
 insert into appointment values('25001', '2019-11-04 16:00:00', 'There is nothing more practical than a good practical theory', '17324');
 insert into appointment values('25001', '2019-12-04 17:00:00', 'Madness is like gravity, all it needs is a little push!', '14001');
 
-insert into consultation values('25001', '2019-11-04 16:00:00', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
+insert into consultation values('25001', '2019-11-04 16:00:00', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'Something plus observation', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
 
 insert into consultation_assistant values('25001', '2019-11-04 16:00:00', '12309');
 
 insert into diagnostic_code values('321', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
 insert into diagnostic_code values('334', 'BABYSHARK');
 
-insert into diagnostic_code_relation values('321', '334', '')
+insert into diagnostic_code_relation values('321', '334', 'Includes');
 
 insert into consultation_diagnostic values('25001', '2019-11-04 16:00:00', '321');
 
 insert into medication values('Ben-u-ron', 'Júlio de Matos LAB');
 
-insert into prescription values('Ben-u-ron', 'Júlio de Matos LAB', '25001', '2019-11-04 16:00:00', '321', '8h-8h', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
+insert into prescription values('Ben-u-ron', 'Júlio de Matos LAB', '25001', '2019-11-04 16:00:00', '321', '8h-20h', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
 
 insert into _procedure values('Tooth extraction', 'Extraction');
 insert into _procedure values('Maxillary molar periapical radiograph', 'Radiography exam)');
@@ -291,4 +293,4 @@ insert into procedure_radiology values('Maxillary molar periapical radiograph', 
 
 insert into teeth values(1, 8, 'Third molar');
 
-insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-11-04 16:00:00', 1, 8, 32.1);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-11-04 16:00:00', 1, 8,'This teeth is so ****', 32.1);
