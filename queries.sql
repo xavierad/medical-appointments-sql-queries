@@ -45,3 +45,39 @@ and consultation_diagnostic.VAT_doctor=prescription.VAT_doctor
 and consultation_diagnostic.date_timestamp=prescription.date_timestamp
 and consultation_diagnostic.ID=prescription.ID
 order by prescription._name;
+
+-- 6
+
+select  '>= 18' as group_ ,count(consultation_assistant.VAT_NURSE)/(select count(*) from nurse) as AVG_nurse,
+        count(consultation_diagnostic.ID)/(select count(*) from consultation_diagnostic) as AVG_diagnostic_code,
+        count(procedure_in_consultation.date_timestamp)/(select count(*) from procedure_in_consultation) as AVG_procedure,
+        count(prescription.date_timestamp)/(select count(*) from prescription) as AVG_prescription
+from consultation inner join appointment on consultation.date_timestamp = appointment.date_timestamp
+    inner join client on appointment.VAT_CLIENT=client.VAT
+    inner join consultation_assistant on consultation_assistant.date_timestamp = consultation.date_timestamp
+    inner join consultation_diagnostic on consultation_diagnostic.date_timestamp = consultation.date_timestamp
+    inner join procedure_in_consultation on procedure_in_consultation.date_timestamp = consultation.date_timestamp
+    inner join prescription on prescription.date_timestamp = consultation.date_timestamp
+    inner join _procedure on _procedure._name = procedure_in_consultation._name
+where  procedure_in_consultation.date_timestamp like '2019%' and client.age >= 18
+
+Union all
+
+select  '<  18' as group_ ,count(consultation_assistant.VAT_NURSE)/(select count(*) from nurse) as AVG_nurse,
+        count(consultation_diagnostic.ID)/(select count(*) from consultation_diagnostic) as AVG_diagnostic_code,
+        count(procedure_in_consultation.date_timestamp)/(select count(*) from procedure_in_consultation) as AVG_procedure,
+        count(prescription.date_timestamp)/(select count(*) from prescription) as AVG_prescription
+from consultation inner join appointment on consultation.date_timestamp = appointment.date_timestamp
+    inner join client on appointment.VAT_CLIENT=client.VAT
+    inner join consultation_assistant on consultation_assistant.date_timestamp = consultation.date_timestamp
+    inner join consultation_diagnostic on consultation_diagnostic.date_timestamp = consultation.date_timestamp
+    inner join procedure_in_consultation on procedure_in_consultation.date_timestamp = consultation.date_timestamp
+    inner join prescription on prescription.date_timestamp = consultation.date_timestamp
+    inner join _procedure on _procedure._name = procedure_in_consultation._name
+where  procedure_in_consultation.date_timestamp like '2019%' and client.age < 18;
+
+
+-- 7
+
+
+-- 8
