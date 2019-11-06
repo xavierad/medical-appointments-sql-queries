@@ -1,16 +1,20 @@
 
 -- 1
 select distinct client.VAT, client._name, PN.phone
-from  (client natural join phone_number_client as PN), (appointment right outer join consultation on appointment.date_timestamp=consultation.date_timestamp)
+from  (client natural join phone_number_client as PN),
+      (appointment right outer join consultation on appointment.date_timestamp=consultation.date_timestamp)
 where  client.VAT = appointment.VAT_client and consultation.VAT_doctor = all(select employee.VAT
-from employee
-where employee._name = 'Jane Sweettooth')
+                                                                             from employee
+                                                                             where employee._name = 'Jane Sweettooth')
 order by client._name;
 
 -- 2
 select E_t._name, SR.VAT, E_p._name, SR.evaluation, SR._description
-from ((supervision_report as SR) natural left outer join trainee_doctor), employee as E_p, employee as E_t
-where trainee_doctor.VAT=E_t.VAT and trainee_doctor.supervisor = E_p.VAT and (SR.evaluation < 3 or SR._description like '%insufficient')
+from ((supervision_report as SR) natural left outer join trainee_doctor),
+     employee as E_p, employee as E_t
+where trainee_doctor.VAT=E_t.VAT
+      and trainee_doctor.supervisor = E_p.VAT
+      and (SR.evaluation < 3 or SR._description like '%insufficient')
 order by SR.evaluation desc;
 
 -- 3
