@@ -309,15 +309,19 @@ insert into diagnostic_code_relation values('301', '302', 'Includes');
 
 insert into consultation_diagnostic values('25001', '2019-11-04 16:00:00', '301');
 insert into consultation_diagnostic values('25001', '2019-11-04 17:00:00', '301');
-insert into consultation_diagnostic values('15101', '2019-11-05 17:25:00', '302');
-insert into consultation_diagnostic values('25001', '2019-12-05 16:05:00', '301');
+insert into consultation_diagnostic values('15101', '2019-11-05 17:25:00', '321');
+insert into consultation_diagnostic values('25001', '2019-12-05 16:05:00', '302');
 insert into consultation_diagnostic values('25001', '2019-12-14 13:05:00', '302');
 
 insert into medication values('Ben-u-ron', 'Júlio de Matos LAB');
 insert into medication values('Brufen', 'Chemistry LAB');
+insert into medication values('Xanax', 'Chemistry LAB');
 
 insert into prescription values('Ben-u-ron', 'Júlio de Matos LAB', '25001', '2019-11-04 16:00:00', '301', '8h-8h', 'Be careful with overdoses...');
-insert into prescription values('Brufen', 'Chemistry LAB', '15101', '2019-11-05 17:25:00', '302', '12h-12h', 'Be careful with overdoses...');
+insert into prescription values('Brufen', 'Chemistry LAB', '25001', '2019-11-04 17:00:00', '301', '12h-12h', 'Be careful with overdoses...');
+insert into prescription values('Xanax', 'Chemistry LAB', '15101', '2019-11-05 17:25:00', '321', '6h-6h', 'Be careful with overdoses...');
+insert into prescription values('Brufen', 'Chemistry LAB', '25001', '2019-12-05 16:05:00', '302', '12h-12h', 'Be careful with overdoses...');
+insert into prescription values('Brufen', 'Chemistry LAB', '25001', '2019-12-14 13:05:00', '302', '12h-12h', 'Be careful with overdoses...');
 
 insert into _procedure values('Tooth extraction', 'Extraction');
 insert into _procedure values('Maxillary molar periapical radiograph', 'Radiography exam');
