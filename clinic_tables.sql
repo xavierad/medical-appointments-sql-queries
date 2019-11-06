@@ -226,7 +226,7 @@ insert into phone_number_employee values('10120', 1002);
 insert into phone_number_employee values('11982', 1003);
 insert into phone_number_employee values('12309', 1004);
 insert into phone_number_employee values('13490', 1005);
-insert into phone_number_employee values('14574', 1006);
+insert into phone_number_employee values('15574', 1006);
 insert into phone_number_employee values('16347', 1007);
 
 insert into receptionist values('15574');
@@ -296,21 +296,16 @@ insert into consultation values('25001', '2019-12-14 13:05:00', 'This is my s-so
 insert into consultation_assistant values('25001', '2019-11-04 16:00:00', '12309');
 insert into consultation_assistant values('25001', '2019-11-04 17:00:00', '13490');
 insert into consultation_assistant values('15101', '2019-11-05 17:25:00', '12309');
-insert into consultation_assistant values('25001', '2019-11-05 16:05:00', '12309');
-insert into consultation_assistant values('25001', '2019-11-14 13:05:00', '13490');
+insert into consultation_assistant values('25001', '2019-12-05 16:05:00', '12309');
+insert into consultation_assistant values('25001', '2019-12-14 13:05:00', '13490');
 
 insert into diagnostic_code values('301', 'You are going to die');
 insert into diagnostic_code values('302', 'You only have 3 more... 2, 1, 0...');
+insert into diagnostic_code values('321', 'arranjar uma descricao');
+insert into diagnostic_code values('334', 'arranjar uma descricao');
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-insert into diagnostic_code_relation values('321', '334', 'txt') -- que tipo de relação?
-=======
 insert into diagnostic_code_relation values('321', '334', 'Includes');
->>>>>>> a72cc8b2a607eeebb7363ade30f07f40e8e75702
-=======
 insert into diagnostic_code_relation values('301', '302', 'Includes');
->>>>>>> 914a3b8529ff5be07c1e8b0cd2943327cfbcde3c
 
 insert into consultation_diagnostic values('25001', '2019-11-04 16:00:00', '301');
 insert into consultation_diagnostic values('25001', '2019-11-04 17:00:00', '301');
@@ -325,10 +320,9 @@ insert into prescription values('Ben-u-ron', 'Júlio de Matos LAB', '25001', '20
 insert into prescription values('Brufen', 'Chemistry LAB', '15101', '2019-11-05 17:25:00', '302', '12h-12h', 'Be careful with overdoses...');
 
 insert into _procedure values('Tooth extraction', 'Extraction');
-insert into _procedure values('Maxillary molar periapical radiograph', 'Radiography exam)');
+insert into _procedure values('Maxillary molar periapical radiograph', 'Radiography exam');
 insert into _procedure values('Root canal treatments', 'Cirurgy');
 insert into _procedure values('Dental charting', 'Dental evaluation');
-
 
 insert into procedure_in_consultation values('Maxillary molar periapical radiograph', '25001', '2019-11-04 16:00:00', 'Good maxillar!');
 insert into procedure_in_consultation values('Maxillary molar periapical radiograph', '25001', '2019-11-04 17:00:00', 'Good maxillar!');
