@@ -1,15 +1,19 @@
 -- 1
-update employee
-set street = 'Bodega street', city = 'Alverca', zip = '1234-098'
-where _name = 'Jane Sweettooth' and VAT = doctor.VAT; -- certificar que é doutor
+update employee, doctor
+set employee.street = 'Livro Street', employee.city = 'Alverca', employee.zip = '1234-098'
+where employee._name = 'Jane Sweettooth' and employee.VAT = doctor.VAT; -- certificar que é doutor
 
 
 -- 2 Change salary (+5%) of all doctors with > 100 appoint. in 2019
 update employee
-set salary = salary*1.05
-where count(select appointment.VAT_doctor
-            from appointment
-            where extract(year from date_timestamp)='2019') > 100;
+set employee.salary =
+  case
+    when (select count(*)
+          from appointment
+          where extract(year from appointment.date_timestamp)='2019' and employee.VAT=appointment.VAT_doctor
+          group by appointment.VAT_doctor) > 100 then employee.salary*1.05
+    else employee.salary
+  end;
 
 
 -- 3 Del doctor jane sweettoth, removing appoint. & consult.(proced., diagn., prescr.)

@@ -47,7 +47,6 @@ and consultation_diagnostic.ID=prescription.ID
 order by prescription._name;
 
 -- 6
-
 select  '>= 18' as group_ ,count(consultation_assistant.VAT_NURSE)/(select count(*) from nurse) as AVG_nurse,
         count(consultation_diagnostic.ID)/(select count(*) from consultation_diagnostic) as AVG_diagnostic_code,
         count(procedure_in_consultation.date_timestamp)/(select count(*) from procedure_in_consultation) as AVG_procedure,

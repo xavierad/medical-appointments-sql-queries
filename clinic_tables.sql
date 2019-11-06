@@ -211,14 +211,14 @@ create table procedure_charting
   foreign key(quadrant, _number) references teeth(quadrant, _number));
 
 
-insert into employee values('25001', 'Jane Sweettooth', '1978-09-30', 'Castanheiras Street', 'Lisboa','1100-300', '1234', 1000);-- doutor
-insert into employee values('15101', 'André Fernandes', '1978-06-07', 'Técnico Avenue', 'Lisboa', '1110-450', '5323', 2000);-- doutor
-insert into employee values('10120', 'Jorge Goodenough', '1938-05-12', 'Cinzeiro Street', 'Lisboa','1100-320', '4321', 1000);-- doutor
-insert into employee values('11982', 'Deolinda de Villa Mar', '1967-09-06', 'Grande Campo Street', 'Lisboa','1100-270', '6979', 1000);-- doutor
-insert into employee values('12309', 'Ermelinda Boavida', '1945-12-17', 'Cinco Batalhas Street', 'Lisboa', '1110-150', '5901', 2000);-- enferm
-insert into employee values('13490', 'Zacarias Fernandes', '1950-02-3', 'Janelas Street', 'Lisboa', '1110-260', '6501', 2000);-- enferm
-insert into employee values('15574', 'Joaquim Ahmad', '1965-03-14', 'Linhas de ferro Street', 'Lisboa','1100-100', '0912', 1000);-- recep
-insert into employee values('16347', 'Maria Peixeira', '1980-01-02', 'Rés-do-chão Street', 'Lisboa', '1200-230', '6832', 2000);-- recep
+insert into employee values('25001', 'Jane Sweettooth', '1978-09-30', 'Castanheiras Street', 'Lisboa','1100-300', '1234', 1000.90);-- doutor
+insert into employee values('15101', 'André Fernandes', '1978-06-07', 'Técnico Avenue', 'Lisboa', '1110-450', '5323', 2000.00);-- doutor
+insert into employee values('10120', 'Jorge Goodenough', '1938-05-12', 'Cinzeiro Street', 'Lisboa','1100-320', '4321', 1000.10);-- doutor
+insert into employee values('11982', 'Deolinda de Villa Mar', '1967-09-06', 'Grande Campo Street', 'Lisboa','1100-270', '6979', 1000.01);-- doutor
+insert into employee values('12309', 'Ermelinda Boavida', '1945-12-17', 'Cinco Batalhas Street', 'Lisboa', '1110-150', '5901', 2000.89);-- enferm
+insert into employee values('13490', 'Zacarias Fernandes', '1950-02-3', 'Janelas Street', 'Lisboa', '1110-260', '6501', 2000.12);-- enferm
+insert into employee values('15574', 'Joaquim Ahmad', '1965-03-14', 'Linhas de ferro Street', 'Lisboa','1100-100', '0912', 1000.11);-- recep
+insert into employee values('16347', 'Maria Peixeira', '1980-01-02', 'Rés-do-chão Street', 'Lisboa', '1200-230', '6832', 2000.09);-- recep
 
 insert into phone_number_employee values('25001', 1000);
 insert into phone_number_employee values('15101', 1001);
@@ -279,6 +279,124 @@ insert into supervision_report values('10120', '2019-10-04 00:10:03', 'Something
 insert into supervision_report values('11982', '2019-11-04 14:15:03', 'Very bad!', 1);
 insert into supervision_report values('10120', '2019-12-04 00:10:03', 'Insufficient plus something', 2);
 
+insert into appointment values('25001', '2019-01-01 01:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-02 02:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-03 03:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-04 04:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-05 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-06 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-07 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-08 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-09 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-10 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-11 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-12 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-13 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-14 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-15 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-16 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-17 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-18 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-19 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-20 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-21 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-22 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-23 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-24 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-25 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-26 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-27 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-28 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-29 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-30 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-01-31 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-01 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-02 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-03 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-04 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-05 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-06 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-07 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-08 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-09 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-10 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-11 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-12 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-13 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-14 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-15 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-16 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-17 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-18 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-19 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-20 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-21 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-22 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-23 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-24 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-25 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-26 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-27 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-02-28 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-01 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-02 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-03 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-04 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-05 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-06 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-07 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-08 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-09 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-10 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-11 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-12 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-13 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-14 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-15 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-16 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-17 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-18 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-19 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-20 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-21 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-22 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-23 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-24 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-25 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-26 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-27 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-28 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-29 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-30 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-03-31 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-01 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-02 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-03 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-04 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-05 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-06 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-07 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-08 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-09 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-10 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-11 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-12 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-13 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-14 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-15 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-16 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-17 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-18 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-19 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-20 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-21 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-22 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-23 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-24 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-25 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-26 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-27 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-04-28 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
 insert into appointment values('25001', '2019-11-04 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
 insert into appointment values('25001', '2019-11-04 17:00:00', 'Madness is like gravity, all it needs is a little push!', '14001');
 insert into appointment values('15101', '2019-11-05 17:25:00', 'Madness is like ...', '14007');
