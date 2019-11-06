@@ -36,3 +36,11 @@ and appointment.VAT_doctor=consultation.VAT_doctor
 where consultation.date_timestamp is null
 and consultation.VAT_doctor is null
 and client.VAT=appointment.VAT_client;
+
+-- 5
+select diagnostic_code.ID, diagnostic_code._description, prescription._name
+from diagnostic_code, consultation_diagnostic, prescription
+where diagnostic_code.ID=consultation_diagnostic.ID
+and consultation_diagnostic.VAT_doctor=prescription.VAT_doctor
+and consultation_diagnostic.date_timestamp=prescription.date_timestamp
+and consultation_diagnostic.ID=prescription.ID;
