@@ -217,29 +217,30 @@ insert into employee values('10120', 'Jorge Goodenough', '1938-05-12', 'Cinzeiro
 insert into employee values('11982', 'Deolinda de Villa Mar', '1967-09-06', 'Grande Campo Street', 'Lisboa','1100-270', '6979', 1000);-- doutor
 insert into employee values('12309', 'Ermelinda Boavida', '1945-12-17', 'Cinco Batalhas Street', 'Lisboa', '1110-150', '5901', 2000);-- enferm
 insert into employee values('13490', 'Zacarias Fernandes', '1950-02-3', 'Janelas Street', 'Lisboa', '1110-260', '6501', 2000);-- enferm
-insert into employee values('14574', 'Joaquim Ahmad', '1965-03-14', 'Linhas de ferro Street', 'Lisboa','1100-100', '0912', 1000);-- recep
+insert into employee values('15574', 'Joaquim Ahmad', '1965-03-14', 'Linhas de ferro Street', 'Lisboa','1100-100', '0912', 1000);-- recep
 insert into employee values('16347', 'Maria Peixeira', '1980-01-02', 'Rés-do-chão Street', 'Lisboa', '1200-230', '6832', 2000);-- recep
 
-insert into phone_number_employee values('25001', 1234);
-insert into phone_number_employee values('15101', 5678);
-insert into phone_number_employee values('10120', 9102);
-insert into phone_number_employee values('11982', 3456);
-insert into phone_number_employee values('12309', 7890);
-insert into phone_number_employee values('13490', 0123);
-insert into phone_number_employee values('14574', 4567);
-insert into phone_number_employee values('16347', 8901);
+insert into phone_number_employee values('25001', 1000);
+insert into phone_number_employee values('15101', 1001);
+insert into phone_number_employee values('10120', 1002);
+insert into phone_number_employee values('11982', 1003);
+insert into phone_number_employee values('12309', 1004);
+insert into phone_number_employee values('13490', 1005);
+insert into phone_number_employee values('14574', 1006);
+insert into phone_number_employee values('16347', 1007);
 
-insert into receptionist values('14574');
+insert into receptionist values('15574');
 insert into receptionist values('16347');
 
-insert into doctor values('25001', 'Anesthesiology', 'this is Janes biography', 'janesweettoth@gmail.com');
-insert into doctor values('15101', 'Pediatric dentistry', 'this is Andres biography','andrefernandes@gmail.com');
-insert into doctor values('10120', 'Dental public health', 'this is Jorges biography','goodenough@gmail.com');
-insert into doctor values('11982', 'Implant dentistry','this is Deolinda biography', 'marvilla@gmail.com');
+insert into doctor values('25001', 'Anesthesiology', 'this is Janes biography', 'janesweettoth@gmail.com');-- permanent
+insert into doctor values('15101', 'Pediatric dentistry', 'this is Andres biography','andrefernandes@gmail.com');-- permanent
+insert into doctor values('10120', 'Dental public health', 'this is Jorges biography','goodenough@gmail.com');-- trainee
+insert into doctor values('11982', 'Implant dentistry','this is Deolindas biography', 'marvilla@gmail.com');-- trainee
 
 insert into nurse values('12309');
 insert into nurse values('13490');
 
+insert into client values('14001', 'Rafael Silva', '1989-12-21', 'Seixal Street', 'Lisbon', '1305-400', 'M', 30);
 insert into client values('14002', 'João Tavares', '1998-12-31', 'Buenos Aires Street', 'Lisbon', '1200-632', 'M', 20);
 insert into client values('14003', 'Maria Barracosa', '1999-07-18', 'Poeta Bocage Street', 'Lisbon', '1100-020', 'F', 20);
 insert into client values('14004', 'Benedita Alves', '2000-04-18', 'Liberty Avenue', 'Lisbon', '1400-270', 'F', 19);
@@ -248,13 +249,24 @@ insert into client values('14006', 'Eusébio Ferreira', '1952-06-07', 'Fernando 
 insert into client values('14007', 'Maria Coluna', '1997-03-13', 'Miguel Torga Street', 'Lisbon', '2725-300', 'F', 22);
 insert into client values('14008', 'Adalberto Correia', '1979-08-17', 'Lagos Street', 'Lisbon', '2725-300', 'M', 40);
 insert into client values('14009', 'Pedro Martin', '1998-12-07', 'Lumiar Street', 'Lisbon', '1020-780', 'M', 20);
-insert into client values('14010', 'Xavier Dias', '1998-02-24', 'Almeida Negreiros Street', 'Sintra', '1300-590', 'M', 59);
-insert into client values('14024', 'Maria José', '1960-05-14', 'Alves Redol Street', 'Lisbon', '2725-300', 'F', 59);
-insert into client values('17324', 'José Maria Turras', '1998-10-04', 'Marinha Street', 'Lisbon', '1200-400', 'M', 21);
-insert into client values('14924', 'Alexandrino Ramos', '1988-12-08', 'Dezembro Street', 'Lisbon', '1225-300', 'M', 31);
-insert into client values('14001', 'Rafael Silva', '1989-12-21', 'Seixal Street', 'Lisbon', '1305-400', 'M', 30);
+insert into client values('14010', 'Xavier Dias', '1998-02-24', 'Almada Negreiros Street', 'Sintra', '1300-590', 'M', 59);
+insert into client values('14011', 'Maria José', '1960-05-14', 'Alves Redol Street', 'Lisbon', '2725-300', 'F', 59);
+insert into client values('14012', 'José Maria Turras', '1998-10-04', 'Marinha Street', 'Lisbon', '1200-400', 'M', 21);
+insert into client values('14013', 'Alexandrino Ramos', '1988-12-08', 'Dezembro Street', 'Lisbon', '1225-300', 'M', 31);
 
-insert into phone_number_client values('14002', 9123);
+insert into phone_number_client values('14001', 2001);
+insert into phone_number_client values('14002', 2002);
+insert into phone_number_client values('14003', 2003);
+insert into phone_number_client values('14004', 2004);
+insert into phone_number_client values('14005', 2005);
+insert into phone_number_client values('14006', 2006);
+insert into phone_number_client values('14007', 2007);
+insert into phone_number_client values('14008', 2008);
+insert into phone_number_client values('14009', 2009);
+insert into phone_number_client values('14010', 2010);
+insert into phone_number_client values('14011', 2011);
+insert into phone_number_client values('14012', 2012);
+insert into phone_number_client values('14013', 2013);
 
 insert into permanent_doctor values('25001');
 insert into permanent_doctor values('15101');
@@ -262,42 +274,133 @@ insert into permanent_doctor values('15101');
 insert into trainee_doctor values('11982', '15101');
 insert into trainee_doctor values('10120', '25001');
 
-insert into supervision_report values('11982', '2019-11-04 14:15:03', 'Very good!', 4);
-insert into supervision_report values('10120', '2019-12-04 00:10:03', 'Something plus insufficient', 1);
+insert into supervision_report values('11982', '2019-09-04 14:15:03', 'Very good!', 4);
+insert into supervision_report values('10120', '2019-10-04 00:10:03', 'Something plus insufficient', 4);
+insert into supervision_report values('11982', '2019-11-04 14:15:03', 'Very bad!', 1);
+insert into supervision_report values('10120', '2019-12-04 00:10:03', 'Insufficient plus something', 2);
 
-insert into appointment values('25001', '2019-11-04 16:00:00', 'There is nothing more practical than a good practical theory', '17324');
-insert into appointment values('25001', '2019-12-04 17:00:00', 'Madness is like gravity, all it needs is a little push!', '14001');
-insert into appointment values('25001', '2019-12-05 17:25:00', 'Madness is like ...', '14007');
+insert into appointment values('25001', '2019-11-04 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
+insert into appointment values('25001', '2019-11-04 17:00:00', 'Madness is like gravity, all it needs is a little push!', '14001');
+insert into appointment values('15101', '2019-11-05 17:25:00', 'Madness is like ...', '14007');
+insert into appointment values('11982', '2019-11-05 12:25:00', 'My madness....', '14003');
+insert into appointment values('25001', '2019-12-05 16:05:00', 'My madness....', '14009');
+insert into appointment values('25001', '2019-12-14 13:05:00', 'My madness....', '14013');
+insert into appointment values('25001', '2019-12-15 19:05:00', 'My madness....', '14005');
 
-
-insert into consultation values('25001', '2019-11-04 16:00:00', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'Something plus observation', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
-insert into consultation values('25001', '2019-11-05 17:25:00', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'Something plus observation', 'ABCDEFGHIJKLMNOPQRSTUVXZ', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
+insert into consultation values('25001', '2019-11-04 16:00:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
+insert into consultation values('25001', '2019-11-04 17:00:00', 'This is my s-soap', 'This is my o-soap', 'This is my a-soap', 'This is my p-soap');
+insert into consultation values('15101', '2019-11-05 17:25:00', 'This is my s-soap', 'periodontitis', 'This is my a-soap', 'This is my p-soap');
+insert into consultation values('25001', '2019-12-05 16:05:00', 'This is my s-soap', 'This is my o-soap', 'This is my a-soap', 'This is my p-soap');
+insert into consultation values('25001', '2019-12-14 13:05:00', 'This is my s-soap', 'gingivitis and periodontitis', 'This is my a-soap', 'This is my p-soap');
 
 insert into consultation_assistant values('25001', '2019-11-04 16:00:00', '12309');
+insert into consultation_assistant values('25001', '2019-11-04 17:00:00', '13490');
+insert into consultation_assistant values('15101', '2019-11-05 17:25:00', '12309');
+insert into consultation_assistant values('25001', '2019-11-05 16:05:00', '12309');
+insert into consultation_assistant values('25001', '2019-11-14 13:05:00', '13490');
 
-insert into diagnostic_code values('321', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
-insert into diagnostic_code values('334', 'BABYSHARK');
+insert into diagnostic_code values('301', 'You are going to die');
+insert into diagnostic_code values('302', 'You only have 3 more... 2, 1, 0...');
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 insert into diagnostic_code_relation values('321', '334', 'txt') -- que tipo de relação?
 =======
 insert into diagnostic_code_relation values('321', '334', 'Includes');
 >>>>>>> a72cc8b2a607eeebb7363ade30f07f40e8e75702
+=======
+insert into diagnostic_code_relation values('301', '302', 'Includes');
+>>>>>>> 914a3b8529ff5be07c1e8b0cd2943327cfbcde3c
 
-insert into consultation_diagnostic values('25001', '2019-11-04 16:00:00', '321');
+insert into consultation_diagnostic values('25001', '2019-11-04 16:00:00', '301');
+insert into consultation_diagnostic values('25001', '2019-11-04 17:00:00', '301');
+insert into consultation_diagnostic values('15101', '2019-11-05 17:25:00', '302');
+insert into consultation_diagnostic values('25001', '2019-12-05 16:05:00', '301');
+insert into consultation_diagnostic values('25001', '2019-12-14 13:05:00', '302');
 
 insert into medication values('Ben-u-ron', 'Júlio de Matos LAB');
+insert into medication values('Brufen', 'Chemistry LAB');
 
-insert into prescription values('Ben-u-ron', 'Júlio de Matos LAB', '25001', '2019-11-04 16:00:00', '321', '8h-20h', 'ABCDEFGHIJKLMNOPQRSTUVXZ');
+insert into prescription values('Ben-u-ron', 'Júlio de Matos LAB', '25001', '2019-11-04 16:00:00', '301', '8h-8h', 'Be careful with overdoses...');
+insert into prescription values('Brufen', 'Chemistry LAB', '15101', '2019-11-05 17:25:00', '302', '12h-12h', 'Be careful with overdoses...');
 
 insert into _procedure values('Tooth extraction', 'Extraction');
 insert into _procedure values('Maxillary molar periapical radiograph', 'Radiography exam)');
 insert into _procedure values('Root canal treatments', 'Cirurgy');
+insert into _procedure values('Dental charting', 'Dental evaluation');
 
-insert into procedure_in_consultation values('Maxillary molar periapical radiograph', '25001', '2019-11-04 16:00:00', 'Great name');
 
-insert into procedure_radiology values('Maxillary molar periapical radiograph', 'thisfile', '25001', '2019-11-04 16:00:00');
+insert into procedure_in_consultation values('Maxillary molar periapical radiograph', '25001', '2019-11-04 16:00:00', 'Good maxillar!');
+insert into procedure_in_consultation values('Maxillary molar periapical radiograph', '25001', '2019-11-04 17:00:00', 'Good maxillar!');
+insert into procedure_in_consultation values('Root canal treatments', '15101', '2019-11-05 17:25:00', 'What a root!');
+insert into procedure_in_consultation values('Tooth extraction', '25001', '2019-12-05 16:05:00', 'Not so great teeth!');
+insert into procedure_in_consultation values('Dental charting', '25001', '2019-12-14 13:05:00', 'Great teeth!');
 
+insert into procedure_radiology values('Maxillary molar periapical radiograph', 'thisfile1', '25001', '2019-11-04 16:00:00');
+insert into procedure_radiology values('Maxillary molar periapical radiograph', 'thisfile2', '25001', '2019-11-04 17:00:00');
+
+insert into teeth values(1, 1, 'Central incisor');
+insert into teeth values(1, 2, 'Lateral incisor');
+insert into teeth values(1, 3, 'Canine');
+insert into teeth values(1, 4, 'First premolar');
+insert into teeth values(1, 5, 'Second premolar');
+insert into teeth values(1, 6, 'First molar');
+insert into teeth values(1, 7, 'Second molar');
 insert into teeth values(1, 8, 'Third molar');
+insert into teeth values(2, 1, 'Central incisor');
+insert into teeth values(2, 2, 'Lateral incisor');
+insert into teeth values(2, 3, 'Canine');
+insert into teeth values(2, 4, 'First premolar');
+insert into teeth values(2, 5, 'Second premolar');
+insert into teeth values(2, 6, 'First molar');
+insert into teeth values(2, 7, 'Second molar');
+insert into teeth values(2, 8, 'Third molar');
+insert into teeth values(3, 1, 'Central incisor');
+insert into teeth values(3, 2, 'Lateral incisor');
+insert into teeth values(3, 3, 'Canine');
+insert into teeth values(3, 4, 'First premolar');
+insert into teeth values(3, 5, 'Second premolar');
+insert into teeth values(3, 6, 'First molar');
+insert into teeth values(3, 7, 'Second molar');
+insert into teeth values(3, 8, 'Third molar');
+insert into teeth values(4, 1, 'Central incisor');
+insert into teeth values(4, 2, 'Lateral incisor');
+insert into teeth values(4, 3, 'Canine');
+insert into teeth values(4, 4, 'First premolar');
+insert into teeth values(4, 5, 'Second premolar');
+insert into teeth values(4, 6, 'First molar');
+insert into teeth values(4, 7, 'Second molar');
+insert into teeth values(4, 8, 'Third molar');
 
-insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-11-04 16:00:00', 1, 8,'This teeth is so ****', 32.1);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 1, 1,'Damn good teeth you´ve got there sir!', 3.1);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 1, 2,'Damn good teeth you´ve got there sir!', 2.2);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 1, 3,'Damn good teeth you´ve got there sir!', 1.3);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 1, 4,'Damn good teeth you´ve got there sir!', 0.2);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 1, 5,'Damn good teeth you´ve got there sir!', 1.1);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 1, 6,'Damn good teeth you´ve got there sir!', 2.0);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 1, 7,'Damn good teeth you´ve got there sir!', 3.1);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 1, 8,'Damn good teeth you´ve got there sir!', 2.2);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 2, 1,'Damn good teeth you´ve got there sir!', 1.3);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 2, 2,'Damn good teeth you´ve got there sir!', 0.2);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 2, 3,'Damn good teeth you´ve got there sir!', 1.1);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 2, 4,'Damn good teeth you´ve got there sir!', 2.1);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 2, 5,'Damn good teeth you´ve got there sir!', 3.2);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 2, 6,'Damn good teeth you´ve got there sir!', 2.3);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 2, 7,'Damn good teeth you´ve got there sir!', 1.2);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 2, 8,'Damn good teeth you´ve got there sir!', 0.1);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 3, 1,'Damn good teeth you´ve got there sir!', 1.0);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 3, 2,'Damn good teeth you´ve got there sir!', 2.0);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 3, 3,'Damn good teeth you´ve got there sir!', 3.1);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 3, 4,'Damn good teeth you´ve got there sir!', 2.2);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 3, 5,'Damn good teeth you´ve got there sir!', 1.2);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 3, 6,'Damn good teeth you´ve got there sir!', 0.2);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 3, 7,'Damn good teeth you´ve got there sir!', 1.3);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 3, 8,'Damn good teeth you´ve got there sir!', 2.1);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 4, 1,'Damn good teeth you´ve got there sir!', 3.0);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 4, 2,'Damn good teeth you´ve got there sir!', 2.1);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 4, 3,'Damn good teeth you´ve got there sir!', 1.3);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 4, 4,'Damn good teeth you´ve got there sir!', 0.2);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 4, 5,'Damn good teeth you´ve got there sir!', 1.1);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 4, 6,'Damn good teeth you´ve got there sir!', 2.0);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 4, 7,'Damn good teeth you´ve got there sir!', 3.3);
+insert into procedure_charting values('Maxillary molar periapical radiograph', '25001', '2019-12-14 13:05:00', 4, 8,'Damn good teeth you´ve got there sir!', 2.2);
