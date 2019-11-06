@@ -282,10 +282,10 @@ insert into supervision_report values('10120', '2019-12-04 00:10:03', 'Insuffici
 insert into appointment values('25001', '2019-11-04 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
 insert into appointment values('25001', '2019-11-04 17:00:00', 'Madness is like gravity, all it needs is a little push!', '14001');
 insert into appointment values('15101', '2019-11-05 17:25:00', 'Madness is like ...', '14007');
-insert into appointment values('11982', '2019-11-05 12:25:00', 'My madness....', '14003');
+insert into appointment values('11982', '2019-11-05 12:25:00', 'My madness....', '14003');-- não ocorre
 insert into appointment values('25001', '2019-12-05 16:05:00', 'My madness....', '14009');
 insert into appointment values('25001', '2019-12-14 13:05:00', 'My madness....', '14013');
-insert into appointment values('25001', '2019-12-15 19:05:00', 'My madness....', '14005');
+insert into appointment values('25001', '2019-12-15 19:05:00', 'My madness....', '14005');-- não ocorre
 
 insert into consultation values('25001', '2019-11-04 16:00:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('25001', '2019-11-04 17:00:00', 'This is my s-soap', 'This is my o-soap', 'This is my a-soap', 'This is my p-soap');
