@@ -424,6 +424,10 @@ insert into diagnostic_code values('301', 'You are going to die');
 insert into diagnostic_code values('302', 'You only have 3 more... 2, 1, 0...');
 insert into diagnostic_code values('321', 'arranjar uma descricao');
 insert into diagnostic_code values('334', 'arranjar uma descricao');
+insert into diagnostic_code values('322', 'There are dental cavities!');
+insert into diagnostic_code values('333', 'Dental cavities and other things');
+insert into diagnostic_code values('354', 'Infectious disease');
+insert into diagnostic_code values('344', 'Infectious disease and dental cavities');
 
 insert into diagnostic_code_relation values('321', '334', 'Includes');
 insert into diagnostic_code_relation values('301', '302', 'Includes');
@@ -438,6 +442,9 @@ insert into consultation_diagnostic values('25001', '2019-12-14 13:05:00', '302'
 insert into medication values('Ben-u-ron', 'Júlio de Matos LAB');
 insert into medication values('Brufen', 'Chemistry LAB');
 insert into medication values('Xanax', 'Chemistry LAB');
+insert into medication values('Aerius', 'MSD LAB');
+insert into medication values('Advil liqui-gel', 'SIBD LAB');
+insert into medication values('Green Tea', 'Homemade LAB');
 
 insert into prescription values('Xanax', 'Chemistry LAB', '25001', '2019-11-04 16:00:00', '301', '8h-8h', 'Be careful with overdoses...');
 insert into prescription values('Brufen', 'Chemistry LAB', '25001', '2019-11-04 17:00:00', '301', '12h-12h', 'Be careful with overdoses...');
