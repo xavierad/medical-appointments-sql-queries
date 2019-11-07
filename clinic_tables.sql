@@ -251,7 +251,7 @@ insert into client values('14008', 'Adalberto Correia', '1979-08-17', 'Lagos Str
 insert into client values('14009', 'Pedro Martin', '1998-12-07', 'Lumiar Street', 'Lisbon', '1020-780', 'M', 20);
 insert into client values('14010', 'Xavier Dias', '1998-02-24', 'Almada Negreiros Street', 'Sintra', '1300-590', 'M', 21);
 insert into client values('14011', 'Maria José', '2001-12-23', 'Alves Redol Street', 'Lisbon', '2725-300', 'F', 17);
-insert into client values('14011', 'Madalena Ramos', '2001-12-27', 'Campo Grande Street', 'Lisbon', '1700-360', 'F', 17);
+insert into client values('14014', 'Madalena Ramos', '2001-12-27', 'Campo Grande Street', 'Lisbon', '1700-360', 'F', 17);
 insert into client values('14012', 'José Maria Turras', '1998-10-04', 'Marinha Street', 'Lisbon', '1200-400', 'M', 21);
 insert into client values('14013', 'Bruce Wayne', '1988-12-08', 'Wayne building Street', 'Lisbon', '1225-300', 'M', 31);
 
@@ -412,6 +412,9 @@ insert into appointment values('25001', '2019-12-06 16:05:00', 'txt', '14013');
 insert into appointment values('25001', '2019-12-15 13:05:00', 'txt', '14013');
 insert into appointment values('25001', '2019-12-07 16:05:00', 'txt', '14009');
 insert into appointment values('25001', '2019-12-16 13:05:00', 'txt', '14009');
+insert into appointment values('10120', '2019-11-01 16:30:00', 'under 18', '14014');
+insert into appointment values('10120', '2019-11-02 16:30:00', 'under 18', '14011');
+
 
 insert into consultation values('10120', '2019-11-04 16:30:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('25001', '2019-11-04 16:00:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
@@ -425,6 +428,8 @@ insert into consultation values('25001', '2019-12-06 16:05:00', 'This is my s-so
 insert into consultation values('25001', '2019-12-15 13:05:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('25001', '2019-12-07 16:05:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('25001', '2019-12-16 13:05:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
+insert into consultation values('10120', '2019-11-01 16:30:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
+insert into consultation values('10120', '2019-11-02 16:30:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
 
 
 insert into consultation_assistant values('10120', '2019-11-04 16:30:00', '12309');
@@ -433,6 +438,8 @@ insert into consultation_assistant values('25001', '2019-11-04 17:00:00', '13490
 insert into consultation_assistant values('15101', '2019-11-05 17:25:00', '12309');
 insert into consultation_assistant values('25001', '2019-12-05 16:05:00', '12309');
 insert into consultation_assistant values('25001', '2019-12-14 13:05:00', '13490');
+insert into consultation_assistant values('10120', '2019-11-01 16:30:00', '12309');
+insert into consultation_assistant values('10120', '2019-11-01 16:30:00', '13490');
 
 insert into diagnostic_code values('301', 'You are going to die');
 insert into diagnostic_code values('302', 'You only have 3 more... 2, 1, 0...');
