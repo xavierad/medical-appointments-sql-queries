@@ -439,7 +439,7 @@ insert into consultation_assistant values('15101', '2019-11-05 17:25:00', '12309
 insert into consultation_assistant values('25001', '2019-12-05 16:05:00', '12309');
 insert into consultation_assistant values('25001', '2019-12-14 13:05:00', '13490');
 insert into consultation_assistant values('10120', '2019-11-01 16:30:00', '12309');
-insert into consultation_assistant values('10120', '2019-11-01 16:30:00', '13490');
+insert into consultation_assistant values('10120', '2019-11-02 16:30:00', '13490');
 
 insert into diagnostic_code values('301', 'You are going to die');
 insert into diagnostic_code values('302', 'You only have 3 more... 2, 1, 0...');
