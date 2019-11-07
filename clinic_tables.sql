@@ -467,7 +467,7 @@ insert into medication values('Green Tea', 'Homemade LAB');
 insert into prescription values('Xanax', 'Chemistry LAB', '25001', '2019-11-04 16:00:00', '301', '8h-8h', 'Be careful with overdoses...');
 insert into prescription values('Brufen', 'Chemistry LAB', '25001', '2019-11-04 17:00:00', '301', '12h-12h', 'Be careful with overdoses...');
 insert into prescription values('Ben-u-ron', 'Júlio de Matos LAB', '15101', '2019-11-05 17:25:00', '321', '6h-6h', 'Be careful with overdoses...');
-insert into prescription values('Brufen', 'Chemistry LAB', '25001', '2019-12-05 16:05:00', '302', '12h-12h', 'Be careful with overdoses...');
+insert into prescription values('Brufen', 'Chemistry LAB', '25001', '2019-12-06 16:05:00', '302', '12h-12h', 'Be careful with overdoses...');
 insert into prescription values('Brufen', 'Chemistry LAB', '25001', '2019-12-14 13:05:00', '322', '12h-12h', 'Be careful with overdoses...');
 insert into prescription values('Aerius', 'MSD LAB', '25001', '2019-12-06 16:05:00', '333', '12h-12h', 'Be careful with overdoses...');
 insert into prescription values('Advil liqui-gel', 'SIBD LAB', '25001', '2019-12-15 13:05:00', '333', '12h-12h', 'Be careful with overdoses...');
