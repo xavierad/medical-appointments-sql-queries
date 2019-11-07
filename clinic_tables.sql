@@ -42,12 +42,12 @@ create table phone_number_employee
  (VAT char(10),
   phone integer,
   primary key(VAT, phone),
-  foreign key(VAT) references employee(VAT));
+  foreign key(VAT) references employee(VAT) on delete cascade);
 
 create table receptionist
  (VAT char(10),
   primary key(VAT),
-  foreign key(VAT) references employee(VAT));
+  foreign key(VAT) references employee(VAT) on delete cascade);
 
 create table doctor
  (VAT char(10),
@@ -55,14 +55,14 @@ create table doctor
   biography varchar(255),
   e_mail varchar(255),
   primary key(VAT),
-  foreign key(VAT) references employee(VAT),
+  foreign key(VAT) references employee(VAT) on delete cascade,
   unique(e_mail));
 -- IC: All doctors are either trainees or permanent
 
 create table nurse
  (VAT char(10),
   primary key(VAT),
-  foreign key(VAT) references employee(VAT));
+  foreign key(VAT) references employee(VAT) on delete cascade);
 
 create table client
  (VAT char(10),
@@ -81,19 +81,19 @@ create table phone_number_client
  (VAT char(10),
   phone integer,
   primary key(VAT, phone),
-  foreign key(VAT) references client(VAT));
+  foreign key(VAT) references client(VAT) on delete cascade);
 
 create table permanent_doctor
  (VAT char(10),
   primary key(VAT),
-  foreign key(VAT) references doctor(VAT));
+  foreign key(VAT) references doctor(VAT) on delete cascade);
 
 create table trainee_doctor
  (VAT char(10),
   supervisor char(10),
   primary key(VAT),
-  foreign key(VAT) references doctor(VAT),
-  foreign key(supervisor) references permanent_doctor(VAT));
+  foreign key(VAT) references doctor(VAT) on delete cascade,
+  foreign key(supervisor) references permanent_doctor(VAT) on delete cascade);
 
 create table supervision_report
  (VAT char(10),
@@ -101,7 +101,7 @@ create table supervision_report
   _description varchar(255),
   evaluation integer,
   primary key(VAT, date_timestamp),
-  foreign key(VAT) references trainee_doctor(VAT),
+  foreign key(VAT) references trainee_doctor(VAT) on delete cascade,
   check(evaluation between 1 and 5));
 
 create table appointment
@@ -110,8 +110,8 @@ create table appointment
   _description varchar(255),
   VAT_client char(10),
   primary key(VAT_doctor, date_timestamp),
-  foreign key(VAT_doctor) references doctor(VAT),
-  foreign key(VAT_client) references client(VAT));
+  foreign key(VAT_doctor) references doctor(VAT) on delete cascade,
+  foreign key(VAT_client) references client(VAT) on delete cascade);
 
 create table consultation
  (VAT_doctor char(10),
@@ -121,7 +121,7 @@ create table consultation
   SOAP_A varchar(255),
   SOAP_P varchar(255),
   primary key(VAT_doctor, date_timestamp),
-  foreign key(VAT_doctor, date_timestamp) references appointment(VAT_doctor, date_timestamp));
+  foreign key(VAT_doctor, date_timestamp) references appointment(VAT_doctor, date_timestamp) on delete cascade);
 -- IC: Consultations are always assigned to at least one assistant nurse
 
 create table consultation_assistant
@@ -129,8 +129,8 @@ create table consultation_assistant
   date_timestamp char(20),
   VAT_nurse char(10),
   primary key(VAT_doctor, date_timestamp),
-  foreign key(VAT_doctor, date_timestamp) references consultation(VAT_doctor, date_timestamp),
-  foreign key(VAT_nurse) references nurse(VAT));
+  foreign key(VAT_doctor, date_timestamp) references consultation(VAT_doctor, date_timestamp) on delete cascade,
+  foreign key(VAT_nurse) references nurse(VAT) on delete cascade);
 
 create table diagnostic_code
  (ID char(10),
@@ -142,16 +142,16 @@ create table diagnostic_code_relation
   ID2 char(10),
   _type varchar(255),
   primary key(ID1, ID2),
-  foreign key(ID1) references diagnostic_code(ID),
-  foreign key(ID2) references diagnostic_code(ID));
+  foreign key(ID1) references diagnostic_code(ID) on delete cascade,
+  foreign key(ID2) references diagnostic_code(ID) on delete cascade);
 
 create table consultation_diagnostic
  (VAT_doctor char(10),
   date_timestamp char(20),
   ID char(10),
   primary key(VAT_doctor, date_timestamp, ID),
-  foreign key(VAT_doctor, date_timestamp) references consultation(VAT_doctor, date_timestamp),
-  foreign key(ID) references diagnostic_code(ID));
+  foreign key(VAT_doctor, date_timestamp) references consultation(VAT_doctor, date_timestamp) on delete cascade,
+  foreign key(ID) references diagnostic_code(ID) on delete cascade);
 
 create table medication
  (_name varchar(255),
@@ -167,8 +167,8 @@ create table prescription
   dosage varchar(255),-- ex.:8h-8h
   _description varchar(255),
   primary key(_name, lab, VAT_doctor, date_timestamp, ID),
-  foreign key(_name, lab) references medication(_name, lab),
-  foreign key(VAT_doctor, date_timestamp, ID) references consultation_diagnostic(VAT_doctor, date_timestamp, ID));
+  foreign key(_name, lab) references medication(_name, lab) on delete cascade,
+  foreign key(VAT_doctor, date_timestamp, ID) references consultation_diagnostic(VAT_doctor, date_timestamp, ID) on delete cascade);
 
 create table _procedure
  (_name varchar(255),
@@ -181,8 +181,8 @@ create table procedure_in_consultation
   date_timestamp char(20),
   _description varchar(255),
   primary key(_name, VAT_doctor, date_timestamp),
-  foreign key(_name) references _procedure(_name),
-  foreign key(VAT_doctor, date_timestamp) references consultation(VAT_doctor, date_timestamp));
+  foreign key(_name) references _procedure(_name) on delete cascade,
+  foreign key(VAT_doctor, date_timestamp) references consultation(VAT_doctor, date_timestamp) on delete cascade);
 
 create table procedure_radiology
  (_name varchar(255),
@@ -190,7 +190,7 @@ create table procedure_radiology
   VAT_doctor char(10),
   date_timestamp char(20),
   primary key(_name, _file, VAT_doctor, date_timestamp),
-  foreign key(_name, VAT_doctor, date_timestamp) references procedure_in_consultation(_name, VAT_doctor, date_timestamp));
+  foreign key(_name, VAT_doctor, date_timestamp) references procedure_in_consultation(_name, VAT_doctor, date_timestamp) on delete cascade);
 
 create table teeth
  (quadrant integer, --  1-4
@@ -207,8 +207,8 @@ create table procedure_charting
   _desc varchar(255),
   measure numeric(3,1), -- 3 digiost no total, 1 depois da virgula
   primary key(_name, VAT, date_timestamp, quadrant, _number),
-  foreign key(_name, VAT, date_timestamp) references procedure_in_consultation(_name, VAT_doctor, date_timestamp),
-  foreign key(quadrant, _number) references teeth(quadrant, _number));
+  foreign key(_name, VAT, date_timestamp) references procedure_in_consultation(_name, VAT_doctor, date_timestamp) on delete cascade,
+  foreign key(quadrant, _number) references teeth(quadrant, _number) on delete cascade);
 
 
 insert into employee values('25001', 'Jane Sweettooth', '1978-09-30', 'Castanheiras Street', 'Lisboa','1100-300', '1234', 1000.90);-- doutor
@@ -400,17 +400,20 @@ insert into appointment values('25001', '2019-04-28 16:00:00', 'There is nothing
 insert into appointment values('25001', '2019-11-04 16:00:00', 'There is nothing more practical than a good practical theory', '14010');
 insert into appointment values('25001', '2019-11-04 17:00:00', 'Madness is like gravity, all it needs is a little push!', '14001');
 insert into appointment values('15101', '2019-11-05 17:25:00', 'Madness is like ...', '14007');
+insert into appointment values('10120', '2019-11-04 16:30:00', 'There is nothing more...', '14010');
 insert into appointment values('11982', '2019-11-05 12:25:00', 'My madness....', '14003');-- não ocorre
 insert into appointment values('25001', '2019-12-05 16:05:00', 'My madness....', '14009');
 insert into appointment values('25001', '2019-12-14 13:05:00', 'My madness....', '14013');
 insert into appointment values('25001', '2019-12-15 19:05:00', 'My madness....', '14005');-- não ocorre
 
+insert into consultation values('10120', '2019-11-04 16:30:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('25001', '2019-11-04 16:00:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('25001', '2019-11-04 17:00:00', 'This is my s-soap', 'This is my o-soap', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('15101', '2019-11-05 17:25:00', 'This is my s-soap', 'periodontitis', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('25001', '2019-12-05 16:05:00', 'This is my s-soap', 'This is my o-soap', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('25001', '2019-12-14 13:05:00', 'This is my s-soap', 'gingivitis and periodontitis', 'This is my a-soap', 'This is my p-soap');
 
+insert into consultation_assistant values('10120', '2019-11-04 16:30:00', '12309');
 insert into consultation_assistant values('25001', '2019-11-04 16:00:00', '12309');
 insert into consultation_assistant values('25001', '2019-11-04 17:00:00', '13490');
 insert into consultation_assistant values('15101', '2019-11-05 17:25:00', '12309');
@@ -425,6 +428,7 @@ insert into diagnostic_code values('334', 'arranjar uma descricao');
 insert into diagnostic_code_relation values('321', '334', 'Includes');
 insert into diagnostic_code_relation values('301', '302', 'Includes');
 
+insert into consultation_diagnostic values('10120', '2019-11-04 16:30:00', '334');
 insert into consultation_diagnostic values('25001', '2019-11-04 16:00:00', '301');
 insert into consultation_diagnostic values('25001', '2019-11-04 17:00:00', '301');
 insert into consultation_diagnostic values('15101', '2019-11-05 17:25:00', '321');
@@ -446,12 +450,15 @@ insert into _procedure values('Maxillary molar periapical radiograph', 'Radiogra
 insert into _procedure values('Root canal treatments', 'Cirurgy');
 insert into _procedure values('Dental charting', 'Dental evaluation');
 
+insert into procedure_in_consultation values('Maxillary molar periapical radiograph', '10120', '2019-11-04 16:30:00', 'Not a maxillar! It is a...');
+insert into procedure_in_consultation values('Dental charting', '10120', '2019-11-04 16:30:00', 'Not a maxillar! It is a...');
 insert into procedure_in_consultation values('Maxillary molar periapical radiograph', '25001', '2019-11-04 16:00:00', 'Good maxillar!');
 insert into procedure_in_consultation values('Maxillary molar periapical radiograph', '25001', '2019-11-04 17:00:00', 'Good maxillar!');
 insert into procedure_in_consultation values('Root canal treatments', '15101', '2019-11-05 17:25:00', 'What a root!');
 insert into procedure_in_consultation values('Tooth extraction', '25001', '2019-12-05 16:05:00', 'Not so great teeth!');
 insert into procedure_in_consultation values('Dental charting', '25001', '2019-12-14 13:05:00', 'Great teeth!');
 
+insert into procedure_radiology values('Maxillary molar periapical radiograph', 'thisfile0', '10120', '2019-11-04 16:30:00');
 insert into procedure_radiology values('Maxillary molar periapical radiograph', 'thisfile1', '25001', '2019-11-04 16:00:00');
 insert into procedure_radiology values('Maxillary molar periapical radiograph', 'thisfile2', '25001', '2019-11-04 17:00:00');
 
@@ -488,6 +495,7 @@ insert into teeth values(4, 6, 'First molar');
 insert into teeth values(4, 7, 'Second molar');
 insert into teeth values(4, 8, 'Third molar');
 
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 1, 1, 'Is it a mollar?', 0.1);
 insert into procedure_charting values('Dental charting', '25001', '2019-12-14 13:05:00', 1, 1,'Damn good teeth you´ve got there sir!', 3.1);
 insert into procedure_charting values('Dental charting', '25001', '2019-12-14 13:05:00', 1, 2,'Damn good teeth you´ve got there sir!', 2.2);
 insert into procedure_charting values('Dental charting', '25001', '2019-12-14 13:05:00', 1, 3,'Damn good teeth you´ve got there sir!', 1.3);
