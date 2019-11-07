@@ -436,8 +436,13 @@ insert into consultation_diagnostic values('10120', '2019-11-04 16:30:00', '334'
 insert into consultation_diagnostic values('25001', '2019-11-04 16:00:00', '301');
 insert into consultation_diagnostic values('25001', '2019-11-04 17:00:00', '301');
 insert into consultation_diagnostic values('15101', '2019-11-05 17:25:00', '321');
-insert into consultation_diagnostic values('25001', '2019-12-05 16:05:00', '302');
+insert into consultation_diagnostic values('25001', '2019-12-14 13:05:00', '322');
 insert into consultation_diagnostic values('25001', '2019-12-14 13:05:00', '302');
+insert into consultation_diagnostic values('25001', '2019-12-06 16:05:00', '333');
+insert into consultation_diagnostic values('25001', '2019-12-15 13:05:00', '333');
+insert into consultation_diagnostic values('25001', '2019-12-07 16:05:00', '354');
+insert into consultation_diagnostic values('25001', '2019-12-16 13:05:00', '344');
+
 
 insert into medication values('Ben-u-ron', 'Júlio de Matos LAB');
 insert into medication values('Brufen', 'Chemistry LAB');
