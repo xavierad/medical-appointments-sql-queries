@@ -98,7 +98,7 @@ and count_dcode.count_name = max_count_dcode.max_count_name;
 
 
 -- 8
-select _name, lab
+select distinct _name, lab
 from prescription
 where (_name, lab) in
 (
