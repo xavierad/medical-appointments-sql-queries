@@ -77,6 +77,68 @@ where  procedure_in_consultation.date_timestamp like '2019%' and client.age < 18
 
 
 -- 7
+select count_dcode._name as 'medication name', count_dcode.dcode_ID as 'ID diagnostic_code'
+from
+     (select diagnostic_code.ID as dcode_ID, prescription._name, count(prescription._name) as count_name
+      from prescription
+      right join diagnostic_code on prescription.ID = diagnostic_code.ID
+      group by diagnostic_code.ID) as count_dcode
+
+inner join
+      (select max_dcode.dcode_ID, max(max_dcode.count_name) as max_count_name
+       from
+          (select diagnostic_code.ID as dcode_ID, prescription._name, count(prescription._name) as count_name
+           from prescription
+           right join diagnostic_code on prescription.ID = diagnostic_code.ID
+           group by diagnostic_code.ID) as max_dcode
+       group by max_dcode.dcode_ID) as max_count_dcode
+
+on count_dcode.dcode_ID = max_count_dcode.dcode_ID
+and count_dcode.count_name = max_count_dcode.max_count_name;
 
 
 -- 8
+select _name, lab
+from prescription
+where (_name, lab) in
+(
+  select prescription._name, prescription.lab
+  from diagnostic_code
+  inner join prescription
+  on prescription.ID = diagnostic_code.ID
+  where procedure_in_consultation._name like '%dental cavities%'
+  and prescription.date_timestamp like '2019%'
+)
+and (_name, lab) not in
+(
+  select prescription._name, prescription.lab
+  from diagnostic_code
+  inner join prescription
+  on prescription.ID = diagnostic_code.ID
+  where procedure_in_consultation._name like '%infectious disease%'
+  and prescription.date_timestamp like '2019%'
+)
+order by _name, lab;
+
+
+-- 9
+select client._name, client.street, client.city, client.zip
+from client
+inner join appointment
+on client.VAT = appointment.VAT_client
+where client.VAT not in (
+        select client.VAT
+        from consultation
+        right join appointment
+          on consultation.VAT_doctor = appointment.VAT_doctor
+          and consultation.date_timestamp = appointment.date_timestamp
+        inner join client
+          on client.VAT = appointment.VAT_client
+        where consultation.VAT_doctor is NULL and consultation.date_timestamp is NULL
+          and appointment.date_timestamp like '2019%'
+)
+and appointment.date_timestamp like '2019%'
+group by client.VAT;
+
+
+
