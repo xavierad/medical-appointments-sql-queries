@@ -106,7 +106,6 @@ where (_name, lab) in
   from diagnostic_code
   inner join prescription
   on prescription.ID = diagnostic_code.ID
-  where procedure_in_consultation._name like '%dental cavities%'
   and prescription.date_timestamp like '2019%'
 )
 and (_name, lab) not in
@@ -115,7 +114,6 @@ and (_name, lab) not in
   from diagnostic_code
   inner join prescription
   on prescription.ID = diagnostic_code.ID
-  where procedure_in_consultation._name like '%infectious disease%'
   and prescription.date_timestamp like '2019%'
 )
 order by _name, lab;
@@ -139,6 +137,3 @@ where client.VAT not in (
 )
 and appointment.date_timestamp like '2019%'
 group by client.VAT;
-
-
-
