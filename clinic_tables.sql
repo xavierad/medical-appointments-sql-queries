@@ -464,6 +464,9 @@ insert into consultation_diagnostic values('25001', '2019-12-06 16:05:00', '333'
 insert into consultation_diagnostic values('25001', '2019-12-15 13:05:00', '333');
 insert into consultation_diagnostic values('25001', '2019-12-07 16:05:00', '354');
 insert into consultation_diagnostic values('25001', '2019-12-16 13:05:00', '344');
+insert into consultation_diagnostic values('10120', '2019-11-01 16:30:00', '333');
+insert into consultation_diagnostic values('10120', '2019-11-02 16:30:00', '333');
+insert into consultation_diagnostic values('10120', '2019-11-01 16:30:00', '354');
 
 
 insert into medication values('Ben-u-ron', 'Júlio de Matos LAB');
@@ -482,6 +485,10 @@ insert into prescription values('Aerius', 'MSD LAB', '25001', '2019-12-06 16:05:
 insert into prescription values('Advil liqui-gel', 'SIBD LAB', '25001', '2019-12-15 13:05:00', '333', '12h-12h', 'Be careful with overdoses...');
 insert into prescription values('Aerius', 'MSD LAB', '25001', '2019-12-07 16:05:00', '354', '12h-12h', 'Be careful with overdoses...');
 insert into prescription values('Green Tea', 'Homemade LAB', '25001', '2019-12-16 13:05:00', '344', '12h-12h', 'Be careful with overdoses...');
+insert into prescription values('Green Tea', 'Homemade LAB', '10120', '2019-11-01 16:30:00', '344', '12h-12h', 'Be careful with overdoses...');
+insert into prescription values('Green Tea', 'Homemade LAB', '10120', '2019-11-02 16:30:00', '344', '12h-12h', 'Be careful with overdoses...');
+insert into prescription values('Aerius', 'MSD LAB', '10120', '2019-11-01 16:30:00', '333', '12h-12h', 'Be careful with overdoses...');
+insert into prescription values('Aerius', 'MSD LAB', '10120', '2019-11-02 16:30:00', '333', '12h-12h', 'Be careful with overdoses...');
 
 insert into _procedure values('Tooth extraction', 'Extraction');
 insert into _procedure values('Maxillary molar periapical radiograph', 'Radiography exam');
@@ -495,6 +502,10 @@ insert into procedure_in_consultation values('Maxillary molar periapical radiogr
 insert into procedure_in_consultation values('Root canal treatments', '15101', '2019-11-05 17:25:00', 'What a root!');
 insert into procedure_in_consultation values('Tooth extraction', '25001', '2019-12-05 16:05:00', 'Not so great teeth!');
 insert into procedure_in_consultation values('Dental charting', '25001', '2019-12-14 13:05:00', 'Great teeth!');
+insert into procedure_in_consultation values('Tooth extraction', '10120', '2019-11-01 16:30:00', 'Not so great teeth!');
+insert into procedure_in_consultation values('Dental charting', '10120', '2019-11-02 16:30:00', 'Great teeth!');
+
+'10120', '2019-11-01 16:30:00'
 
 insert into procedure_radiology values('Maxillary molar periapical radiograph', 'thisfile0', '10120', '2019-11-04 16:30:00');
 insert into procedure_radiology values('Maxillary molar periapical radiograph', 'thisfile1', '25001', '2019-11-04 16:00:00');
