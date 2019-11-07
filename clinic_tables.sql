@@ -249,8 +249,9 @@ insert into client values('14006', 'Eusébio Ferreira', '1952-06-07', 'Fernando 
 insert into client values('14007', 'Maria Coluna', '1997-03-13', 'Miguel Torga Street', 'Lisbon', '2725-300', 'F', 22);
 insert into client values('14008', 'Adalberto Correia', '1979-08-17', 'Lagos Street', 'Lisbon', '2725-300', 'M', 40);
 insert into client values('14009', 'Pedro Martin', '1998-12-07', 'Lumiar Street', 'Lisbon', '1020-780', 'M', 20);
-insert into client values('14010', 'Xavier Dias', '1998-02-24', 'Almada Negreiros Street', 'Sintra', '1300-590', 'M', 59);
-insert into client values('14011', 'Maria José', '1960-05-14', 'Alves Redol Street', 'Lisbon', '2725-300', 'F', 59);
+insert into client values('14010', 'Xavier Dias', '1998-02-24', 'Almada Negreiros Street', 'Sintra', '1300-590', 'M', 21);
+insert into client values('14011', 'Maria José', '2001-12-23', 'Alves Redol Street', 'Lisbon', '2725-300', 'F', 17);
+insert into client values('14011', 'Madalena Ramos', '2001-12-27', 'Campo Grande Street', 'Lisbon', '1700-360', 'F', 17);
 insert into client values('14012', 'José Maria Turras', '1998-10-04', 'Marinha Street', 'Lisbon', '1200-400', 'M', 21);
 insert into client values('14013', 'Bruce Wayne', '1988-12-08', 'Wayne building Street', 'Lisbon', '1225-300', 'M', 31);
 
