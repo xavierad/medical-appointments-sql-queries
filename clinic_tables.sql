@@ -405,12 +405,12 @@ insert into appointment values('11982', '2019-11-05 12:25:00', 'My madness....',
 insert into appointment values('25001', '2019-12-05 16:05:00', 'My madness....', '14009');
 insert into appointment values('25001', '2019-12-14 13:05:00', 'My madness....', '14013');
 insert into appointment values('25001', '2019-12-15 19:05:00', 'My madness....', '14005');-- não ocorre
-insert into consultation_diagnostic values('25001', '2019-12-14 13:05:00', 'txt');
-insert into consultation_diagnostic values('25001', '2019-12-14 13:05:00', 'txt');
-insert into consultation_diagnostic values('25001', '2019-12-06 16:05:00', 'txt');
-insert into consultation_diagnostic values('25001', '2019-12-15 13:05:00', 'txt');
-insert into consultation_diagnostic values('25001', '2019-12-07 16:05:00', 'txt');
-insert into consultation_diagnostic values('25001', '2019-12-16 13:05:00', 'txt');
+insert into appointment values('25001', '2019-12-14 13:05:00', 'txt');
+insert into appointment values('25001', '2019-12-14 13:05:00', 'txt');
+insert into appointment values('25001', '2019-12-06 16:05:00', 'txt');
+insert into appointment values('25001', '2019-12-15 13:05:00', 'txt');
+insert into appointment values('25001', '2019-12-07 16:05:00', 'txt');
+insert into appointment values('25001', '2019-12-16 13:05:00', 'txt');
 
 insert into consultation values('10120', '2019-11-04 16:30:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('25001', '2019-11-04 16:00:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
