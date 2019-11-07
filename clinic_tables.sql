@@ -405,8 +405,8 @@ insert into appointment values('11982', '2019-11-05 12:25:00', 'My madness....',
 insert into appointment values('25001', '2019-12-05 16:05:00', 'My madness....', '14009');
 insert into appointment values('25001', '2019-12-14 13:05:00', 'My madness....', '14013');
 insert into appointment values('25001', '2019-12-15 19:05:00', 'My madness....', '14005');-- não ocorre
-insert into appointment values('25001', '2019-12-14 13:05:00', 'txt');
-insert into appointment values('25001', '2019-12-14 13:05:00', 'txt');
+insert into appointment values('25001', '2019-12-14 13:35:00', 'txt');
+insert into appointment values('25001', '2019-12-14 14:35:00', 'txt');
 insert into appointment values('25001', '2019-12-06 16:05:00', 'txt');
 insert into appointment values('25001', '2019-12-15 13:05:00', 'txt');
 insert into appointment values('25001', '2019-12-07 16:05:00', 'txt');
