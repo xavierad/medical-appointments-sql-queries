@@ -22,7 +22,6 @@ select zip as 'Zip code', city as 'City'
 from client;
 
 -- 4
-
 create view facts_consults as
 select client.VAT, consultation.date_timestamp, client.zip,
          (select count(*) from procedure_in_consultation) as num_procedures,
