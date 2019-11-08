@@ -42,4 +42,22 @@ delete from employee, _procedure
 where employee._name = 'Jane Sweettooth';
 
 
--- 4 find diag. code gingivitis, create diagnostic_code correspond to periodontitis, change diagnosis from gingivitis to periodontitis
+/* 4-
+Find the diagnosis code corresponding to gingivitis.
+Create also a new diagnosis code corresponding to periodontitis.
+Change the diagnosis from gingivitis to periodontitis for all clients where, for the same
+consultation/diagnosis, a dental charting procedure shows a value
+above 4 in terms of the average gap between the teeth and the gums */
+
+-- select diagnostic_code.ID from diagnostic_code where diagnostic_code._desc like '%gingivitis';
+insert into diagnostic_code values('400', 'It is periodontitis');
+-- adaptar
+update diagnostic_code
+set diagnostic_code.ID = (select diagnostic_code.ID
+                          from diagnostic_code,
+                          where diagnostic_code._desc like '%periodontitis' 
+                          group by date_timestamp
+                          having avg(procedure_charting.measure)>4)
+where diagnostic_code=(select diagnostic_code.ID
+                       from diagnostic_code,
+                       where diagnostic_code._desc like '%gingivitis')

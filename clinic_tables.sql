@@ -445,8 +445,8 @@ insert into consultation_assistant values('10120', '2019-11-02 16:30:00', '13490
 
 insert into diagnostic_code values('301', 'You are going to die');
 insert into diagnostic_code values('302', 'You only have 3 more... 2, 1, 0...');
-insert into diagnostic_code values('321', 'arranjar uma descricao');
-insert into diagnostic_code values('334', 'arranjar uma descricao');
+insert into diagnostic_code values('321', 'It is gingivitis');
+insert into diagnostic_code values('334', 'Hi, I am not gingivitis');
 insert into diagnostic_code values('322', 'There are dental cavities!');
 insert into diagnostic_code values('333', 'Dental cavities and other things');
 insert into diagnostic_code values('354', 'Infectious disease');
@@ -454,7 +454,6 @@ insert into diagnostic_code values('344', 'Infectious disease and dental cavitie
 
 insert into diagnostic_code_relation values('321', '334', 'Includes');
 insert into diagnostic_code_relation values('301', '302', 'Includes');
-
 
 insert into consultation_diagnostic values('10120', '2019-11-04 16:30:00', '334');
 insert into consultation_diagnostic values('25001', '2019-11-04 16:00:00', '301');
@@ -467,9 +466,9 @@ insert into consultation_diagnostic values('25001', '2019-12-06 16:05:00', '333'
 insert into consultation_diagnostic values('25001', '2019-12-15 13:05:00', '333');
 insert into consultation_diagnostic values('25001', '2019-12-07 16:05:00', '354');
 insert into consultation_diagnostic values('25001', '2019-12-16 13:05:00', '344');
-insert into consultation_diagnostic values('10120', '2019-11-01 16:30:00', '333');
 insert into consultation_diagnostic values('10120', '2019-11-02 16:30:00', '302');
 insert into consultation_diagnostic values('10120', '2019-11-01 16:30:00', '354');
+insert into consultation_diagnostic values('10120', '2019-11-01 16:30:00', '333');-- mesma consulta que de cima
 
 insert into medication values('Ben-u-ron', 'Júlio de Matos LAB');
 insert into medication values('Brufen', 'Chemistry LAB');
@@ -546,7 +545,38 @@ insert into teeth values(4, 6, 'First molar');
 insert into teeth values(4, 7, 'Second molar');
 insert into teeth values(4, 8, 'Third molar');
 
-insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 1, 1, 'Is it a mollar?', 0.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 1, 1, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 1, 2, 'Is it a mollar?', 3.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 1, 3, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 1, 4, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 1, 5, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 1, 6, 'Is it a mollar?', 5.6);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 1, 7, 'Is it a mollar?', 4.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 1, 8, 'Is it a mollar?', 4.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 2, 1, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 2, 2, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 2, 3, 'Is it a mollar?', 8.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 2, 4, 'Is it a mollar?', 5.9);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 2, 5, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 2, 6, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 2, 7, 'Is it a mollar?', 8.3);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 2, 8, 'Is it a mollar?', 4.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 3, 1, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 3, 2, 'Is it a mollar?', 6.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 3, 3, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 3, 4, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 3, 5, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 3, 6, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 3, 7, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 3, 8, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 4, 1, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 4, 2, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 4, 3, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 4, 4, 'Is it a mollar?', 7.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 4, 5, 'Is it a mollar?', 5.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 4, 6, 'Is it a mollar?', 6.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 4, 7, 'Is it a mollar?', 2.1);
+insert into procedure_charting values('Dental charting', '10120', '2019-11-04 16:30:00', 4, 8, 'Is it a mollar?', 5.1);
 insert into procedure_charting values('Dental charting', '25001', '2019-12-14 13:05:00', 1, 1,'Damn good teeth you´ve got there sir!', 3.1);
 insert into procedure_charting values('Dental charting', '25001', '2019-12-14 13:05:00', 1, 2,'Damn good teeth you´ve got there sir!', 2.2);
 insert into procedure_charting values('Dental charting', '25001', '2019-12-14 13:05:00', 1, 3,'Damn good teeth you´ve got there sir!', 1.3);
