@@ -18,28 +18,28 @@ set employee.salary =
 
 -- 3 Del doctor jane sweettoth, removing appoint. & consult.(proced., diagn., prescr.)
 -- ADICIONAR MAIS DADOS PARA TESTAR!!
-delete from _procedure
-where _procedure._name = (select procedure_in_consultation._name
-                          from procedure_in_consultation
-                          where procedure_in_consultation.VAT_doctor=(select employee.VAT
-                                                                      from employee
-                                                                      where employee._name='Jane Sweettooth')
-                          group by procedure_in_consultation._name
-                          having count(procedure_in_consultation._name)=1);
+delete proc from _procedure proc
+  join procedure_in_consultation as pc on proc._name=pc._name
+  join doctor as d on pc.VAT_doctor=d.VAT
+  join employee on d.VAT=employee.VAT
+where employee._name='Jane Sweettooth' and
+      not exists(select *
+                 from (select *
+                       from _procedure) as p natural join procedure_in_consultation
+                 where p._name=proc._name and procedure_in_consultation.VAT_doctor<>d.VAT);
 
-
-delete from diagnostic_code
-where diagnostic_code.ID = (select consultation_diagnostic.ID
-                            from consultation_diagnostic
-                            where consultation_diagnostic.VAT_doctor=(select employee.VAT
-                                                                        from employee
-                                                                        where employee._name='Jane Sweettooth')
-                            group by consultation_diagnostic.ID
-                            having count(consultation_diagnostic.ID)=1);
-
+delete dcode from diagnostic_code dcode
+ join consultation_diagnostic as consd on dcode.ID=consd.ID
+ join doctor as d on consd.VAT_doctor=d.VAT
+ join employee on d.VAT=employee.VAT
+where employee._name='Jane Sweettooth' and
+     not exists(select *
+                from (select *
+                      from diagnostic_code) as dcode1 natural join consultation_diagnostic
+                where dcode1.ID=dcode.ID and consultation_diagnostic.VAT_doctor<>d.VAT);
 
 delete from employee, _procedure
 where employee._name = 'Jane Sweettooth';
 
 
--- 4
+-- 4 find diag. code gingivitis, create diagnostic_code correspond to periodontitis, change diagnosis from gingivitis to periodontitis
