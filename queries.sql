@@ -54,7 +54,7 @@ select '> 18' as _group, AVG_nurse._nurses/AVG_nurse.num_consultation as 'AVG (n
        AVG_prescription.num_prescription/AVG_prescription.num_consultation as 'AVG (prescription)'
 from
     (
-      select count(consultation_assistant.VAT_nurse) as _nurses, count(consultation.date_timestamp) as num_consultation
+      select count(consultation_assistant.VAT_nurse) as _nurses, count(distinct consultation.date_timestamp, consultation.VAT_doctor) as num_consultation
       from consultation
       left join consultation_assistant on consultation.date_timestamp = consultation_assistant.date_timestamp
                                        and consultation.VAT_doctor = consultation_assistant.VAT_doctor
@@ -63,7 +63,7 @@ from
       inner join client on appointment.VAT_CLIENT=client.VAT
       where consultation.date_timestamp like '2019%' and client.age > 18) as AVG_nurse,
     (
-      select count(procedure_in_consultation._name) as num_procedures, count(consultation.date_timestamp) as num_consultation
+      select count(procedure_in_consultation._name) as num_procedures, count(distinct consultation.date_timestamp, consultation.VAT_doctor) as num_consultation
       from consultation
       left join procedure_in_consultation on consultation.date_timestamp = procedure_in_consultation.date_timestamp
                                           and consultation.VAT_doctor = procedure_in_consultation.VAT_doctor
@@ -72,7 +72,7 @@ from
       inner join client on appointment.VAT_CLIENT=client.VAT
       where consultation.date_timestamp like '2019%' and client.age > 18) as AVG_procedure,
     (
-      select count(consultation_diagnostic.ID) as num_diagnostic_codes, count(consultation.date_timestamp) as num_consultation
+      select count(consultation_diagnostic.ID) as num_diagnostic_codes, count(distinct consultation.date_timestamp, consultation.VAT_doctor) as num_consultation
       from consultation
       left join consultation_diagnostic on consultation.date_timestamp = consultation_diagnostic.date_timestamp
                                           and consultation.VAT_doctor = consultation_diagnostic.VAT_doctor
@@ -82,7 +82,7 @@ from
       where consultation.date_timestamp like '2019%' and client.age > 18
     ) as AVG_diagnostic_code,
     (
-      select count(prescription.ID) as num_prescription, count(consultation.date_timestamp) as num_consultation
+      select count(prescription.ID) as num_prescription, count(distinct consultation.date_timestamp, consultation.VAT_doctor) as num_consultation
       from consultation
       left join prescription on consultation.date_timestamp = prescription.date_timestamp
                                           and consultation.VAT_doctor = prescription.VAT_doctor
@@ -100,7 +100,7 @@ select '<= 18' as _group, AVG_nurse._nurses/AVG_nurse.num_consultation as 'AVG (
        AVG_prescription.num_prescription/AVG_prescription.num_consultation as 'AVG (prescription)'
 from
     (
-      select count(consultation_assistant.VAT_nurse) as _nurses, count(consultation.date_timestamp) as num_consultation
+      select count(consultation_assistant.VAT_nurse) as _nurses, count(distinct consultation.date_timestamp, consultation.VAT_doctor) as num_consultation
       from consultation
       left join consultation_assistant on consultation.date_timestamp = consultation_assistant.date_timestamp
                                        and consultation.VAT_doctor = consultation_assistant.VAT_doctor
@@ -109,7 +109,7 @@ from
       inner join client on appointment.VAT_CLIENT=client.VAT
       where consultation.date_timestamp like '2019%' and client.age <= 18) as AVG_nurse,
     (
-      select count(procedure_in_consultation._name) as num_procedures, count(consultation.date_timestamp) as num_consultation
+      select count(procedure_in_consultation._name) as num_procedures, count(distinct consultation.date_timestamp, consultation.VAT_doctor) as num_consultation
       from consultation
       left join procedure_in_consultation on consultation.date_timestamp = procedure_in_consultation.date_timestamp
                                           and consultation.VAT_doctor = procedure_in_consultation.VAT_doctor
@@ -118,7 +118,7 @@ from
       inner join client on appointment.VAT_CLIENT=client.VAT
       where consultation.date_timestamp like '2019%' and client.age <= 18) as AVG_procedure,
     (
-      select count(consultation_diagnostic.ID) as num_diagnostic_codes, count(consultation.date_timestamp) as num_consultation
+      select count(consultation_diagnostic.ID) as num_diagnostic_codes, count(distinct consultation.date_timestamp, consultation.VAT_doctor) as num_consultation
       from consultation
       left join consultation_diagnostic on consultation.date_timestamp = consultation_diagnostic.date_timestamp
                                           and consultation.VAT_doctor = consultation_diagnostic.VAT_doctor
@@ -128,7 +128,7 @@ from
       where consultation.date_timestamp like '2019%' and client.age <= 18
     ) as AVG_diagnostic_code,
     (
-      select count(prescription.ID) as num_prescription, count(consultation.date_timestamp) as num_consultation
+      select count(prescription.ID) as num_prescription, count(distinct consultation.date_timestamp, consultation.VAT_doctor) as num_consultation
       from consultation
       left join prescription on consultation.date_timestamp = prescription.date_timestamp
                                           and consultation.VAT_doctor = prescription.VAT_doctor
