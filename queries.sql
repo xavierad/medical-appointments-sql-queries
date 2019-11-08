@@ -66,7 +66,7 @@ where  procedure_in_consultation.date_timestamp like '2019%' and client.age >= 1
 
 Union all
 
-select  '<  18' as group_ ,count(consultation_assistant.VAT_NURSE)/(select count(*) from nurse) as AVG_nurse,
+select  '<  18' as group_, count(consultation_assistant.VAT_NURSE)/(select count(*) from nurse) as AVG_nurse,
         count(consultation_diagnostic.ID)/(select count(*) from consultation_diagnostic) as AVG_diagnostic_code,
         count(procedure_in_consultation.date_timestamp)/(select count(*) from procedure_in_consultation) as AVG_procedure,
         count(prescription.date_timestamp)/(select count(*) from prescription) as AVG_prescription
