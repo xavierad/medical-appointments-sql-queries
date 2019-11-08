@@ -17,26 +17,29 @@ set employee.salary =
 
 
 -- 3 Del doctor jane sweettoth, removing appoint. & consult.(proced., diagn., prescr.)
--- a corrigir!!
+-- ADICIONAR MAIS DADOS PARA TESTAR!!
 delete from _procedure
-where (select count(*)
-          from procedure_in_consultation
-          where procedure_in_consultation.VAT_doctor=(select employee.VAT
-                                                      from employee
-                                                     where employee._name='Jane Sweettooth')
-          group by procedure_in_consultation._name)=1;
+where _procedure._name = (select procedure_in_consultation._name
+                          from procedure_in_consultation
+                          where procedure_in_consultation.VAT_doctor=(select employee.VAT
+                                                                      from employee
+                                                                      where employee._name='Jane Sweettooth')
+                          group by procedure_in_consultation._name
+                          having count(procedure_in_consultation._name)=1);
+
 
 delete from diagnostic_code
-where 1=
-  case
-    when (select count(*)
-          from consultation_diagnostic
-          where consultation_diagnostic.VAT_doctor=(select employee.VAT
-                                                      from employee
-                                                      where employee._name='Jane Sweettooth')
-          group by consultation_diagnostic.ID)=1 then 1
-    else 0
-  end;
+where diagnostic_code.ID = (select consultation_diagnostic.ID
+                            from consultation_diagnostic
+                            where consultation_diagnostic.VAT_doctor=(select employee.VAT
+                                                                        from employee
+                                                                        where employee._name='Jane Sweettooth')
+                            group by consultation_diagnostic.ID
+                            having count(consultation_diagnostic.ID)=1);
+
 
 delete from employee, _procedure
 where employee._name = 'Jane Sweettooth';
+
+
+-- 4
