@@ -1,4 +1,8 @@
 -- delete if exists!
+drop view if exists dim_date;
+drop view if exists dim_client;
+drop view if exists dim_location_client;
+drop view if exists facts_consults;
 
 -- 1
 
@@ -20,16 +24,13 @@ from client;
 -- 4
 
 create view facts_consults as
-select
-(select VAT from dim_client), (select * from dim_date), (select zip from dim_location_client),
-count(select * from _procedure) as num_procedures, count(select * from medication) as num_medications, count(select * from diagnostic_code) as num_diagnostic_codes)
-from consultation;
-
--- outra forma de fazer ?
-
-create view facts_consults as
-select dim_client.VAT, dim_date.date_timestamp, dim_location_client.zip
-from consultation
--- inner join dim_client on consultation.VAT = dim_client.VAT
-inner join dim_date on consultation.date_timestamp = dim_date.date_timestamp
--- inner join dim_location_client on consultation.VAT_client = dim_client.VAT
+select client.VAT, consultation.date_timestamp, client.zip,
+         (select count(*) from procedure_in_consultation) as num_procedures,
+         (select count(*) from prescription) as num_medications,
+         (select count(*) from consultation_diagnostic) as num_diagnostic_codes
+  from consultation
+  inner join procedure_in_consultation on procedure_in_consultation.date_timestamp = consultation.date_timestamp
+                                       and procedure_in_consultation.VAT_doctor = consultation.VAT_doctor
+  inner join appointment on consultation.date_timestamp = appointment.date_timestamp
+                         and consultation.VAT_doctor = appointment.VAT_doctor
+  inner join client on appointment.VAT_client = client.VAT
