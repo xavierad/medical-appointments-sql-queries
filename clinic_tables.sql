@@ -466,9 +466,9 @@ insert into consultation_diagnostic values('25001', '2019-12-06 16:05:00', '302'
 insert into consultation_diagnostic values('25001', '2019-12-06 16:05:00', '333');
 insert into consultation_diagnostic values('25001', '2019-12-15 13:05:00', '333');
 insert into consultation_diagnostic values('25001', '2019-12-07 16:05:00', '354');
-insert into consultation_diagnostic values('25001', '2019-12-16 13:05:00', '344'); -- unico
+insert into consultation_diagnostic values('25001', '2019-12-16 13:05:00', '344');
 insert into consultation_diagnostic values('10120', '2019-11-01 16:30:00', '333');
-insert into consultation_diagnostic values('10120', '2019-11-02 16:30:00', '333');
+insert into consultation_diagnostic values('10120', '2019-11-02 16:30:00', '302');
 insert into consultation_diagnostic values('10120', '2019-11-01 16:30:00', '354');
 
 insert into medication values('Ben-u-ron', 'Júlio de Matos LAB');
