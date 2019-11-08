@@ -445,8 +445,8 @@ insert into consultation_assistant values('10120', '2019-11-02 16:30:00', '13490
 
 insert into diagnostic_code values('301', 'You are going to die');
 insert into diagnostic_code values('302', 'You only have 3 more... 2, 1, 0...');
-insert into diagnostic_code values('321', 'It is gingivitis');
-insert into diagnostic_code values('334', 'Hi, I am not gingivitis');
+insert into diagnostic_code values('321', 'This is gingivitis');
+insert into diagnostic_code values('334', 'Hi, I am not ingivitis');
 insert into diagnostic_code values('322', 'There are dental cavities!');
 insert into diagnostic_code values('333', 'Dental cavities and other things');
 insert into diagnostic_code values('354', 'Infectious disease');
@@ -488,7 +488,7 @@ insert into prescription values('Aerius', 'MSD LAB', '25001', '2019-12-07 16:05:
 insert into prescription values('Green Tea', 'Homemade LAB', '25001', '2019-12-16 13:05:00', '344', '12h-12h', 'Be careful with overdoses...');
 insert into prescription values('Green Tea', 'Homemade LAB', '10120', '2019-11-01 16:30:00', '354', '12h-12h', 'Be careful with overdoses...');
 insert into prescription values('Aerius', 'MSD LAB', '10120', '2019-11-01 16:30:00', '333', '12h-12h', 'Be careful with overdoses...');
-insert into prescription values('Aerius', 'MSD LAB', '10120', '2019-11-02 16:30:00', '333', '12h-12h', 'Be careful with overdoses...');
+insert into prescription values('Aerius', 'MSD LAB', '10120', '2019-11-02 16:30:00', '302', '12h-12h', 'Be careful with overdoses...');
 
 insert into _procedure values('Tooth extraction', 'Extraction');
 insert into _procedure values('Maxillary molar periapical radiograph', 'Radiography exam');

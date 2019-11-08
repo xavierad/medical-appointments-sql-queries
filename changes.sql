@@ -51,13 +51,25 @@ above 4 in terms of the average gap between the teeth and the gums */
 
 -- select diagnostic_code.ID from diagnostic_code where diagnostic_code._desc like '%gingivitis';
 insert into diagnostic_code values('400', 'It is periodontitis');
--- adaptar
-update diagnostic_code
-set diagnostic_code.ID = (select diagnostic_code.ID
-                          from diagnostic_code,
-                          where diagnostic_code._desc like '%periodontitis' 
-                          group by date_timestamp
-                          having avg(procedure_charting.measure)>4)
-where diagnostic_code=(select diagnostic_code.ID
-                       from diagnostic_code,
-                       where diagnostic_code._desc like '%gingivitis')
+
+update consultation_diagnostic
+set ID = (select ID
+          from diagnostic_code
+          where _description like '%periodontitis')
+where consultation_diagnostic.ID = (select ID
+                                    from diagnostic_code
+                                    where diagnostic_code._description like '%gingivitis')
+                                    and exists (select procedure_charting.VAT
+                                                from procedure_charting
+                                                where consultation_diagnostic.VAT_doctor=procedure_charting.VAT
+                                                  and consultation_diagnostic.date_timestamp = procedure_charting.date_timestamp
+                                                group by procedure_charting.VAT, procedure_charting.date_timestamp
+                                                having avg(procedure_charting.measure)>4.0);
+
+
+update consultation_diagnostic cd
+  set ID = (select ID from diagnostic_code where _description like '%periodontitis')
+  where cd.ID = (select ID from diagnostic_code where _description like '%gingivitis')
+  and exists (select pc.VAT from procedure_charting as pc where cd.VAT_doctor=pc.VAT and cd.date_timestamp=pc.date_timestamp
+  group by pc.VAT, pc.date_timestamp
+having avg(measure)>4);
