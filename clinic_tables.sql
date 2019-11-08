@@ -415,7 +415,7 @@ insert into appointment values('25001', '2019-12-16 13:05:00', 'txt', '14009');
 insert into appointment values('10120', '2019-11-01 16:30:00', 'under 18', '14014');
 insert into appointment values('10120', '2019-11-02 16:30:00', 'under 18', '14011');
 
-
+insert into consultation values('25001', '2019-04-25 16:00:00', 'This is my s-soap', 'This is my o-soap', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('10120', '2019-11-04 16:30:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('25001', '2019-11-04 16:00:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('25001', '2019-11-04 17:00:00', 'This is my s-soap', 'This is my o-soap', 'This is my a-soap', 'This is my p-soap');
@@ -431,7 +431,7 @@ insert into consultation values('25001', '2019-12-16 13:05:00', 'This is my s-so
 insert into consultation values('10120', '2019-11-01 16:30:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
 insert into consultation values('10120', '2019-11-02 16:30:00', 'This is my s-soap', 'gingivitis', 'This is my a-soap', 'This is my p-soap');
 
-
+insert into consultation_assistant values('25001', '2019-04-25 16:00:00', '13490');
 insert into consultation_assistant values('10120', '2019-11-04 16:30:00', '12309');
 insert into consultation_assistant values('25001', '2019-11-04 16:00:00', '12309');
 insert into consultation_assistant values('25001', '2019-11-04 17:00:00', '13490');
@@ -463,11 +463,10 @@ insert into consultation_diagnostic values('25001', '2019-12-06 16:05:00', '302'
 insert into consultation_diagnostic values('25001', '2019-12-06 16:05:00', '333');
 insert into consultation_diagnostic values('25001', '2019-12-15 13:05:00', '333');
 insert into consultation_diagnostic values('25001', '2019-12-07 16:05:00', '354');
-insert into consultation_diagnostic values('25001', '2019-12-16 13:05:00', '344');
+insert into consultation_diagnostic values('25001', '2019-12-16 13:05:00', '344'); -- unico
 insert into consultation_diagnostic values('10120', '2019-11-01 16:30:00', '333');
 insert into consultation_diagnostic values('10120', '2019-11-02 16:30:00', '333');
 insert into consultation_diagnostic values('10120', '2019-11-01 16:30:00', '354');
-
 
 insert into medication values('Ben-u-ron', 'Júlio de Matos LAB');
 insert into medication values('Brufen', 'Chemistry LAB');
@@ -493,7 +492,9 @@ insert into _procedure values('Tooth extraction', 'Extraction');
 insert into _procedure values('Maxillary molar periapical radiograph', 'Radiography exam');
 insert into _procedure values('Root canal treatments', 'Cirurgy');
 insert into _procedure values('Dental charting', 'Dental evaluation');
+insert into _procedure values('Tooth whitening', 'Tooth clean'); -- unico
 
+insert into procedure_in_consultation values('Tooth whitening', '25001', '2019-04-25 16:00:00', 'Converting black to white!'); -- unico
 insert into procedure_in_consultation values('Maxillary molar periapical radiograph', '10120', '2019-11-04 16:30:00', 'Not a maxillar! It is a...');
 insert into procedure_in_consultation values('Dental charting', '10120', '2019-11-04 16:30:00', 'Not a maxillar! It is a...');
 insert into procedure_in_consultation values('Maxillary molar periapical radiograph', '25001', '2019-11-04 16:00:00', 'Good maxillar!');
