@@ -38,7 +38,7 @@ where employee._name='Jane Sweettooth' and
                       from diagnostic_code) as dcode1 natural join consultation_diagnostic
                 where dcode1.ID=dcode.ID and consultation_diagnostic.VAT_doctor<>d.VAT);
 
-delete from employee, _procedure
+delete from employee,
 where employee._name = 'Jane Sweettooth';
 
 
